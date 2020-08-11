@@ -1,18 +1,22 @@
 <template>
     <div>
-        <h1> Example, {{message}} </h1>
+        <h1> Example, {{amountCoins}} </h1>
+        <button @click="$store.commit('addCoins',1)">+1</button>
+        <button @click="$store.commit('subtractCoins',1)">-1</button>
     </div>
 </template>
 
 <script>
     export default {
-        data() { // типо стор?
-            return {
-                message: null,
+        computed: {
+            amountCoins() {
+                return this.$store.getters.showAmountCoins
             }
         },
-        created() { // типо изменяет стор?
-            this.message = this.$store.getters.getMessage
+        methods: {
+            addCoins() {
+                this.$store.dispatch('addCoins',1);
+            }
         }
     }
 </script>

@@ -3,12 +3,51 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import example from './example' // название модуля
-import bank from './bank'
-
 export default new Vuex.Store({
-    modules: {
-        example,
-        bank,
+    state: {
+        amountCoins: 0,
+        stockroom: {
+            biomechanisms: 0,
+            processors: 0,
+            souls: 0,
+        },
+    },
+    mutations: {
+        addCoins (state, n) {
+            if(state.amountCoins < 100) {
+                state.amountCoins += n;
+            }
+        },
+        subtractCoins (state, n) {
+            if(state.amountCoins > 0) {
+                state.amountCoins -= n;
+            }
+        },
+        buy (state, {thing,cost}) {
+            if(state.amountCoins >= cost) {
+                state.amountCoins -= cost;
+                switch(thing) {
+                    case 'biomechanisms' : state.stockroom.biomechanisms--; break;
+                    case 'processors' : state.stockroom.processors--; break;
+                    case 'souls' : state.stockroom.souls--; break;
+                }
+            }
+        },
+        sell (state, {thing,cost}) {
+            if( (state.amountCoins + cost) <= 100) {
+                state.amountCoins += cost;
+            }
+        }
+    },
+    actions: {
+
+    },
+    getters: {
+        showAmountCoins (state) {
+            return state.amountCoins
+        },
+        showStockroom (state) {
+            return state.stockroom
+        }
     }
 })

@@ -3,6 +3,7 @@ const fs = require("fs"); // Не понятно
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 const PATHS = {
   src: path.join(__dirname, '../src'),
@@ -21,17 +22,16 @@ module.exports = {
       '~': 'src',
     }
   },
-  externals: { // Нужен для того чтобы получит доступ к константе PATHS из других конфигов
-    paths: PATHS, // paths - ярлык PATHS - что именно (типо крч сказали что константа PATHS в объекте externals будет называться paths что = externals.paths)
+  externals: {
+    paths: PATHS,
   },
   entry: {
-    app: PATHS.src, // Потому что можно писать не путь к файлу как было ('./src/index.js') а просто к папке где лежит индекс.джс ('./src/'), а он уже есть в константе PATHS
-    // lk: `${PATHS.src}/lk.js`// Для образец для дополнительной точки входа
+    app: PATHS.src, 
   },
   output: {
-    filename: `${PATHS.assets}js/[name].[hash].js`, // ${PATHS.assets} скомпелируется в 'assets/'
-    path: PATHS.dist , // также как в точке входа
-    publicPath: '/' //Нужна для сервера
+    filename: `${PATHS.assets}js/[name].[hash].js`,
+    path: PATHS.dist ,
+    publicPath: '/'
   },
   optimization: {
     splitChunks: {
@@ -53,33 +53,42 @@ module.exports = {
         exclude: '/node_modules/'
       },
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loader: {
+            scss: 'vue-style-loader!css-loader!sass-loader'
+          }
+        }
+      },
+      {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]' //[ext] = (png|jpg|gif|svg) (одно из)
+          name: '[name].[ext]'
         }
       },
       {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]' //[ext] = (png|jpg|gif|svg) (одно из)
+          name: '[name].[ext]'
         }
       },
       {
         test: /\.scss$/,
-        use: [ //В масив use лучше передавать данные объектами (типо в скобочках {})
+        use: [
           'style-loader',
           MiniCssExtractPlugin.loader,
           {
             loader: "css-loader",
-            options: { sourceMap: true } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+            options: { sourceMap: true } 
           },{
             loader: "postcss-loader",
-            options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`} } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+            options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`} }
           },{
             loader: "sass-loader",
-            options: { sourceMap: true } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+            options: { sourceMap: true } 
           },
         ]
       },
@@ -90,11 +99,11 @@ module.exports = {
         MiniCssExtractPlugin.loader,
         {
           loader: "css-loader",
-          options: { sourceMap: true } // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+          options: { sourceMap: true } 
         },
         {
           loader: "postcss-loader",
-          options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`}} // sourceMap - Это карта сайта(?) options:{} - это конфигурация "css-loader"
+          options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`}}
         }
       ]
     },
@@ -103,16 +112,22 @@ module.exports = {
       loader: 'pug-loader'
     },],
   },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.js'
+    }
+  },
   "plugins": [
+    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: `${PATHS.assets}css/[name].[hash].css`
     }),
-    new HtmlWebpackPlugin({ // Раскоментить при необходимости запуска из деррикотории dist (а не из её поддерриктории )
+    new HtmlWebpackPlugin({
       template: `${PATHS.src}/index.html`,
       filename: './index.html',
       inject: true
     }),
-    new CopyWebpackPlugin({ // Синтаксис изменился 
+    new CopyWebpackPlugin({
       patterns: [
       { from: `${PATHS.src}/images`, to: `${PATHS.assets}img` },
       { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` },
@@ -120,8 +135,8 @@ module.exports = {
       ]
     }),
     ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`, // .pug
-      filename: `./pages/${page.replace(/\.pug/,'.html')}` // .html
+      template: `${PAGES_DIR}/${page}`, 
+      filename: `./pages/${page.replace(/\.pug/,'.html')}`
     }))
   ],
 }

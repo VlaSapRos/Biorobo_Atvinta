@@ -4,5 +4,6 @@ html(lang='en')
     title VlaSapRos
     link(rel="shortcut icon" href="./favicon.ico" type="image/x-icon")
   body
-    include ../blocks/header/header.pug
-    a(href="./about.html") туда
+    div(id='app')
+      button(@click="visibility = !visibility") Show Vue-component
+      example-component(v-if="visibility")

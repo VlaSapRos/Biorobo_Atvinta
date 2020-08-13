@@ -11,6 +11,7 @@
         <card-component 
             pic='/assets/img/soul.svg'
             title='Душа'
+            buttonValue = 'Жми'
         />
     </div>
 </template>

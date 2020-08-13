@@ -93,22 +93,15 @@ section, .section {
   list-style-type: square;
 }
 
-.fontsList_first {
-  font-family: "PressStart2P";
-}
-
-.fontsList_second  {
-  font-family: "Aktau";
-}
-
-.fontsList_third  {
-  font-family: "Elzevir";
-}
-
-.fontsList_fourth  {
-  font-family: "Ograda Normal";
-}
-
 .fontsList_fifth  {
   font-family: "VLADOVSKIY";
+}
+
+.background {
+  padding: 48px ;
+  // background: #4C5865;
+  // background: #A3B8CC;
+  // background: #E5E5E5;
+  background: #222B33;
+  
 }

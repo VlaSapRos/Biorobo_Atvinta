@@ -4,7 +4,7 @@ html(lang='en')
     title VlaSapRos
     link(rel="shortcut icon" href="./favicon.ico" type="image/x-icon")
   body
-    div(id='app')
+    div(id='app' class='background')
       button(@click="visibility = !visibility") Show Vue-component
-      button(@click="$store.commit('addCoins',1)") +1
-      example-component(v-if="visibility")
+      button(@click="$store.commit('addCoins',100)") +100
+      main-component(v-if="visibility")

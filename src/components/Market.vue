@@ -1,8 +1,17 @@
 <template lang="html">
     <div class="market">
-        <card-component pic='/assets/img/biomechanism.svg'/>
-        <card-component pic='/assets/img/processor.svg'/>
-        <card-component pic='/assets/img/soul.svg'/>
+        <card-component 
+            pic='/assets/img/biomechanism.svg'
+            title='Биомеханизм'
+        />
+        <card-component 
+            pic='/assets/img/processor.svg'
+            title='Процессор'
+        />
+        <card-component 
+            pic='/assets/img/soul.svg'
+            title='Душа'
+        />
     </div>
 </template>
 
@@ -35,6 +44,8 @@
 
 <style lang="scss" scoped>
     .market {
+        justify-content: center;
+        align-items: center;
         display:flex;
         width: 1016px;
         padding: 0px 106px;

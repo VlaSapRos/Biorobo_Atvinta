@@ -37,7 +37,7 @@ a {
 	text-decoration: none;
 }
 
-ul, li {
+ul, li, p {
   margin: 0;
   padding: 0;
 }
@@ -98,10 +98,21 @@ section, .section {
 }
 
 .background {
-  padding: 48px ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1440px;
+  padding: 48px;
+  // box-sizing: border-box;
   // background: #4C5865;
   // background: #A3B8CC;
   // background: #E5E5E5;
   background: #222B33;
   
+}
+
+button, 
+button:active, 
+button:focus {
+  outline: none;
 }

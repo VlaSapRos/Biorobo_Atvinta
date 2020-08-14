@@ -1,9 +1,9 @@
 <template lang="html">
     <div class='card'>
-        <img :src="pic" width="236" height="128">
         <h1>{{ title }}</h1>
         <h2>{{ subtitle }}</h2>
-        <button class='button'>Установить</button>
+        <h1>{{ count }}</h1>
+        <button class='button'>Продать</button>
     </div>
 </template>
 
@@ -15,9 +15,9 @@
             }
         },
         props: {
-            pic: null,
             title: '',
             subtitle: '',
+            count: 0,
         },
         computed: {
             coinsText() {
@@ -59,7 +59,7 @@
     .button {
         width: 200px;
         height: 48px;
-        background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
+        filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.25));
         border-radius: 60px;
         font-family: 'Montserrat_regular';
         font-style: normal;

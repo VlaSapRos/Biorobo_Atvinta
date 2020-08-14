@@ -33,6 +33,7 @@
         <header-component/>
         <wallet-component/>
         <market-component/>
+        <stock-component/>
     </div>
 </template>
 
@@ -40,38 +41,14 @@
     Vue.component('header-component', require('./Header.vue').default);
     Vue.component('wallet-component', require('./Wallet.vue').default);
     Vue.component('market-component', require('./Market.vue').default);
-    export default {
-        data() {
-            return {
-                checked:false,
-                costRobots: {
-                    biomechanisms: 4,
-                    processors: 4,
-                    souls: 1,
-                },
-            }
-        },
-        computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText
-            },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins
-            },
-            stockroom() {
-                return this.$store.getters.showStockroom
-            },
-            amountRobots() {
-                return this.$store.getters.showAmountRobots
-            }
-        },
-    }
+    Vue.component('stock-component', require('./Stock.vue').default);
 </script>
 
 <style lang="scss" scoped>
     div {
-        width: 1440px;
+        width: 1016px;
+        display: flex;
+        flex-direction: column;
     }
     h1 {
         background-color: burlywood;

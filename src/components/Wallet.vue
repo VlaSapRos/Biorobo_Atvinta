@@ -1,10 +1,10 @@
 <template lang="html">
-    <div>
+    <div class='wallet'>
         <h1>Кошелёк криптоволют</h1>
-        <h1> {{ amountCoins + ' biorobo ' + coinsText }} </h1>
-        <button @click="$store.commit('addCoins',checked)">Нацыганить!</button>
+        <p class='coins'> {{ amountCoins + ' biorobo ' + coinsText }} </p>
+        <button @click="$store.commit('addCoins',checked)">Нацыганить</button>
         <input type="checkbox" id="checkbox" v-model="checked"> 
-        <h2>Цыганить по 5 монет</h2>
+        <p class='check'>Цыганить по 5 монет</p>
     </div>
 </template>
 
@@ -37,12 +37,36 @@
         /* identical to box height, or 125% */
         color: #FFFFFF;
     }
-    h2 {
+    .coins {
+        font-family: 'Montserrat_regular';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 40px;
+        color: #A3B8CC;
+    }
+    .check {
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
         /* identical to box height, or 150% */
         color: #FFFFFF;
+    }
+    button {
+        width: 111px;
+        height: 24px;
+        border: none;
+        font-family: 'Montserrat_regular';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #FF7F22;
+        background-color: #222B33;
+        border-bottom: 1px solid rgba(255, 127, 34, 0.5);
+    }
+    .wallet {
+        display: block;
     }
 </style>

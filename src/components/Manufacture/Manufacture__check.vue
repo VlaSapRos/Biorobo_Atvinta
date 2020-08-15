@@ -1,36 +1,53 @@
 <template lang="html">
     <div class='checkboxs'>
-        <input 
-            type='checkbox' 
+        <button 
             v-if="(count>=1)"
             class='checkbox'
-            v-bind:class="{ biomechanism: isBiomechanism, processor: isProcessor, soul: isSoul }"
-        >
-        <input 
-            type='checkbox' 
+            v-bind:class="{ 
+                biomechanism: isBiomechanism,
+                processor: isProcessor, 
+                soul: isSoul, 
+                normal: (stock >= 1), 
+                active: isActive, 
+            }"
+            :disabled="stock < 1"
+        ><img :src='imgNormal'></button>
+        <button 
             v-if="(count>=2)"
             class='checkbox'
-            v-bind:class="{ biomechanism: isBiomechanism, processor: isProcessor, soul: isSoul }"
-        >
-        <input 
-            type='checkbox' 
+            v-bind:class="{ 
+                biomechanism: isBiomechanism,
+                processor: isProcessor, 
+                soul: isSoul, 
+                normal: (stock >= 2), 
+                active: isActive, 
+            }"
+            :disabled='stock < 2'
+        ><img :src='imgNormal'></button>
+        <button 
             v-if="(count>=3)"
             class='checkbox'
-            v-bind:class="{ biomechanism: isBiomechanism, processor: isProcessor, soul: isSoul }"
-        >
-        <input 
-            type='checkbox' 
+            v-bind:class="{ 
+                biomechanism: isBiomechanism,
+                processor: isProcessor, 
+                soul: isSoul, 
+                normal: (stock >= 3), 
+                active: isActive, 
+            }"
+            :disabled="stock < 3"
+        ><img :src='imgNormal'></button>
+        <button 
             v-if="(count>=4)"
             class='checkbox'
             v-bind:class="{ 
                 biomechanism: isBiomechanism,
                 processor: isProcessor, 
                 soul: isSoul, 
-                normal: (), 
+                normal: (stock >= 4), 
                 active: isActive, 
             }"
-            :disable=""
-        >
+            :disabled='stock < 4'
+        ><img :src='imgNormal'></button>
     </div>
 </template>
 
@@ -38,8 +55,7 @@
     export default {
         data() {
             return {
-                isNormal:false,
-                ifActive:false,
+
             }
         },
         props: {
@@ -50,6 +66,12 @@
             isBiomechanism: false,
             isProcessor: false,
             isSoul: false,
+            isNormal:true,
+            isActive:false,
+            stock: 0,
+            imgNormal: '',
+            imgActive: '',
+            imgDisabled: '',
         },
         computed: {
             coinsText() {
@@ -85,9 +107,15 @@
     }
     .checkbox {
         background-color: #333940;
-        border-radius: 40px;
+        border-radius: 4px;
         width: 48px;
         height: 48px;
+    }
+    .active {
+        border: 2px solid #FF7F22;
+    }
+    .normal {
+        border: 2px solid white;
     }
     .biomechanism {
 
@@ -97,5 +125,8 @@
     }
     .soul {
 
+    }
+    .checkbox:disabled {
+        border: 2px solid #333940;
     }
 </style>

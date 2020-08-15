@@ -25,8 +25,7 @@
         </div>
 
         <button @click="$store.commit('subtractCoins',1)">-1</button>
-        <button @click="$store.commit('buy',10)">buy</button>
-        <button @click="$store.commit('sell',{thing:'souls',cost:10})">sell</button>
+
         <br/>
         <button @click="$store.commit('createRobot',{costRobots:costRobots})">CREATE!</button>
         <p>{{ amountRobots }}</p> -->

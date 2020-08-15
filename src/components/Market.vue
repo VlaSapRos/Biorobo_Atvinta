@@ -5,20 +5,23 @@
         <card-component 
             pic='/assets/img/biomechanism.svg'
             title='Биомеханизм'
-            subtitle='Стоимость: 7 монет'
             buttonValue = 'Установить'
+            cost = 7
+            thing = 'biomechanisms'
         />
         <card-component 
             pic='/assets/img/processor.svg'
             title='Процессор'
-            subtitle='Стоимость: 5 монет'
             buttonValue = 'Установить'
+            cost = 5
+            thing = 'processors'
         />
         <card-component 
             pic='/assets/img/soul.svg'
             title='Душа'
-            subtitle='Стоимость: 25 монет'
             buttonValue = 'Установить'
+            cost = 25
+            thing = 'souls'
         />
         </div>
     </div>

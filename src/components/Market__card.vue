@@ -2,22 +2,25 @@
     <div class='card'>
         <img :src="pic" width="236" height="128">
         <h1>{{ title }}</h1>
-        <h2>{{ subtitle }}</h2>
-        <button class='button'>Установить</button>
+        <h2>Стоимость: {{ cost }} монет</h2>
+        <button 
+            @click="$store.commit('buy',{thing:thing, cost:cost})"
+            :disabled='amountCoins < cost'
+            class = 'button' 
+            v-bind:class="{ active: (amountCoins >= cost) }"
+        >
+        Установить</button>
     </div>
 </template>
-
+        // <button @click="$store.commit('sell',{thing:'souls',cost:10})">sell</button>
 <script>
     export default {
-        data() {
-            return {
-                checked:false,
-            }
-        },
         props: {
             pic: null,
             title: '',
             subtitle: '',
+            cost: 0,
+            thing: ''
         },
         computed: {
             coinsText() {
@@ -59,7 +62,7 @@
     .button {
         width: 200px;
         height: 48px;
-        background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
+        background: linear-gradient(180deg, #4C5865 0%,#4C5865 100%);
         border-radius: 60px;
         font-family: 'Montserrat_regular';
         font-style: normal;
@@ -68,5 +71,8 @@
         line-height: 24px;
         text-align: center;
         color: #FFFFFF;
+    }
+    .active {
+        background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
     }
 </style>

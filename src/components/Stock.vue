@@ -5,17 +5,20 @@
         <stockCard-component 
             :count='stock.biomechanisms'
             title='Биомеханизм'
-            subtitle='Стоимость: 5 монет'
+            cost=5
+            thing='biomechanisms'
         />
         <stockCard-component 
             :count='stock.processors'
             title='Процессор'
-            subtitle='Стоимость: 3 монет'
+            cost=3
+            thing='processors'
         />
         <stockCard-component 
             :count='stock.souls'
             title='Душа'
-            subtitle='Стоимость: 15 монет'
+            cost=15
+            thing='souls'
         />
         </div>
     </div>

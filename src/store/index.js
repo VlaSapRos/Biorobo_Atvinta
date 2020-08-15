@@ -60,7 +60,9 @@ export default new Vuex.Store({
             }
         },
         sell (state, {thing,cost}) {
-            if( (state.amountCoins + cost) <= 100 ) { 
+            if( (state.amountCoins + cost) <= 100 ) {
+                console.log(state.amountCoins); 
+                console.log(typeof cost); 
                 switch(thing) {
                     case 'biomechanisms' : 
                     if(state.stockroom.biomechanisms > 0) {

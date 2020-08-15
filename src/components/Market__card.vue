@@ -12,7 +12,7 @@
         Установить</button>
     </div>
 </template>
-        // <button @click="$store.commit('sell',{thing:'souls',cost:10})">sell</button>
+        // 
 <script>
     export default {
         props: {

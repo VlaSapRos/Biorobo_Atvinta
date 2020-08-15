@@ -1,28 +1,20 @@
 <template lang="html">
-    <div class='card'>
+    <div class='radio'>
         <h1>{{ title }}</h1>
-        <h2>Стоимость: {{ cost }} монет</h2>
-        <h1>{{ count }}</h1>
-        <button @click="$store.commit('sell',{thing:thing,cost:+cost})"
-            :disabled='count < 1'
-            class = 'button' 
-            v-bind:class="{ active: (count > 0) }"
-        >Продать</button>
+        <div class='conteiner'>
+            <p><input type='radio' :name='name'>{{value1}}</p>
+            <p><input type='radio' :name='name'>{{value2}}</p>
+        </div>
     </div>
 </template>
-
+        // 
 <script>
     export default {
-        data() {
-            return {
-                checked:false,
-            }
-        },
         props: {
             title: '',
-            count: 0,
-            cost: 0,
-            thing: '',
+            name: '',
+            value1: '',
+            value2: '',
         },
         computed: {
             coinsText() {
@@ -55,30 +47,14 @@
         text-align: center;
         color: #A3B8CC;
     }
-    .card {
+    .radio {
         display: flex;
-        flex-flow: column;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .button {
-        width: 200px;
-        height: 48px;
-        border-radius: 60px;
-        font-family: 'Montserrat_regular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: center;
-        color: #7CDAF9;
-        background-color: #222B33;
-    }
-    .active {
-        border: 2px solid #7CDAF9
-    }
-    .button:disabled{
-        border: 2px solid #4C5865;
-        color: #4C5865;
+    .conteiner {
+        display: flex;
+        flex-direction: row;
     }
 </style>

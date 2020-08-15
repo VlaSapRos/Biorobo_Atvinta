@@ -114,5 +114,5 @@ section, .section {
 button, 
 button:active, 
 button:focus {
-  outline: none;
+  outline: 0 !important;
 }

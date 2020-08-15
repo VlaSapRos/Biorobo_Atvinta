@@ -42,7 +42,7 @@
     Vue.component('wallet-component', require('./Wallet.vue').default);
     Vue.component('market-component', require('./Market.vue').default);
     Vue.component('stock-component', require('./Stock.vue').default);
-    Vue.component('manufacturing-component', require('./Manufacture.vue').default);
+    Vue.component('manufacturing-component', require('./Manufacture/Manufacture.vue').default);
 </script>
 
 <style lang="scss" scoped>

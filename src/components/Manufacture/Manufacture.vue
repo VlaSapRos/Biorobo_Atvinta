@@ -21,12 +21,27 @@
                     :disabled='amountCoins < 10'
                 >Произвести за 10 монет</button>
             </div>
+            <div class='conteiner'>
+                <check-component 
+                    count='4'
+                    isBiomechanism='true'
+                />
+                <check-component 
+                    count='4'
+                    isProcessor='true'
+                />
+                <check-component 
+                    count='1'
+                    isSoul='true'
+                />
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     Vue.component('radio-component', require('./Manufacture__radio.vue').default);
+    Vue.component('check-component', require('./Manufacture__check.vue').default);
     export default {
         data() {
             return {

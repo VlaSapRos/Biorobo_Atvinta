@@ -38,15 +38,6 @@
         text-align: center;
         color: #FFFFFF;
     }
-    h2 {
-        font-family: 'Montserrat_regular';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: center;
-        color: #A3B8CC;
-    }
     .radio {
         display: flex;
         flex-direction: column;

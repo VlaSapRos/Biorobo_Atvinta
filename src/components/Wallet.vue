@@ -18,12 +18,27 @@
             }
         },
         computed: {
+            ...mapGetters([
+                'coinsDeclination'
+            ]),
             coinsText() {
                 this.$store.commit('coinsDeclination');
                 return this.$store.getters.showCoinsText
             },
             amountCoins() {
                 return this.$store.getters.showAmountCoins
+            },
+            coinsDeclination() {
+                let amount = this.$store.getters.showAmountCoins
+                if (amount != 11 && amount != 12 && amount != 13 && amount != 14) {
+                    switch (amount % 10) {
+                        case 1 : state.coinsText = 'монета'; break; 
+                        case 2 :
+                        case 3 :
+                        case 4 : state.coinsText = 'монеты'; break;
+                        default : state.coinsText = 'монет';
+                    }
+                } else { state.coinsText = 'монет'; }
             },
         },
     }
@@ -72,3 +87,4 @@
         display: block;
     }
 </style>
+

@@ -40,8 +40,8 @@
 <script>
     Vue.component('header-component', require('./Header.vue').default);
     Vue.component('wallet-component', require('./Wallet.vue').default);
-    Vue.component('market-component', require('./Market.vue').default);
-    Vue.component('stock-component', require('./Stock.vue').default);
+    Vue.component('market-component', require('./Market/Market.vue').default);
+    Vue.component('stock-component', require('./Stock/Stock.vue').default);
     Vue.component('manufacturing-component', require('./Manufacture/Manufacture.vue').default);
 </script>
 

@@ -1,34 +1,31 @@
 <template lang="html">
     <div>
-        <h1>Рынок комплектующих</h1>
-        <div class="market">
-        <card-component 
-            pic='/assets/img/biomechanism.svg'
+        <h1>Склад</h1>
+        <div class="stock">
+        <stockCard-component 
+            :count='stock.biomechanisms'
             title='Биомеханизм'
-            buttonValue = 'Установить'
-            cost = 7
-            thing = 'biomechanisms'
+            cost=5
+            thing='biomechanisms'
         />
-        <card-component 
-            pic='/assets/img/processor.svg'
+        <stockCard-component 
+            :count='stock.processors'
             title='Процессор'
-            buttonValue = 'Установить'
-            cost = 5
-            thing = 'processors'
+            cost=3
+            thing='processors'
         />
-        <card-component 
-            pic='/assets/img/soul.svg'
+        <stockCard-component 
+            :count='stock.souls'
             title='Душа'
-            buttonValue = 'Установить'
-            cost = 25
-            thing = 'souls'
+            cost=15
+            thing='souls'
         />
         </div>
     </div>
 </template>
 
 <script>
-    Vue.component('card-component', require('./Market__card.vue').default);
+    Vue.component('stockCard-component', require('./StockCard.vue').default);
     export default {
         data() {
             return {
@@ -40,8 +37,8 @@
                 this.$store.commit('coinsDeclination');
                 return this.$store.getters.showCoinsText;
             },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins;
+            stock() {
+                return this.$store.getters.showStockroom
             },
         },
     }
@@ -58,7 +55,7 @@
         line-height: 40px;
         color: #FFFFFF;
     }
-    .market {
+    .stock {
         justify-content: space-between;
         align-content: center;
         align-items: center;

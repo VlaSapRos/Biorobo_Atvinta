@@ -2,19 +2,19 @@
     <div>
         <h1>Склад</h1>
         <div class="stock">
-        <stockCard-component 
+        <StockCard 
             :count='stock.biomechanisms'
             title='Биомеханизм'
             cost=5
             thing='biomechanisms'
         />
-        <stockCard-component 
+        <StockCard 
             :count='stock.processors'
             title='Процессор'
             cost=3
             thing='processors'
         />
-        <stockCard-component 
+        <StockCard 
             :count='stock.souls'
             title='Душа'
             cost=15
@@ -25,7 +25,6 @@
 </template>
 
 <script>
-    Vue.component('stockCard-component', require('./StockCard.vue').default);
     export default {
         data() {
             return {

@@ -29,20 +29,16 @@
         <br/>
         <button @click="$store.commit('createRobot',{costRobots:costRobots})">CREATE!</button>
         <p>{{ amountRobots }}</p> -->
-        <header-component/>
-        <wallet-component/>
-        <market-component/>
-        <stock-component/>
-        <manufacturing-component/>
+        <MyHeader/>
+        <Wallet/>
+        <Market/>
+        <Stock/>
+        <Manufacturing/>
     </div>
 </template>
 
 <script>
-    Vue.component('header-component', require('./Header.vue').default);
-    Vue.component('wallet-component', require('./Wallet.vue').default);
-    Vue.component('market-component', require('./Market/Market.vue').default);
-    Vue.component('stock-component', require('./Stock/Stock.vue').default);
-    Vue.component('manufacturing-component', require('./Manufacture/Manufacture.vue').default);
+
 </script>
 
 <style lang="scss" scoped>

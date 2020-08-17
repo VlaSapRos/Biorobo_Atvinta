@@ -3,13 +3,13 @@
         <h1>Производство</h1>
         <div class="manufacturing">
             <div class='conteiner'>
-                <radio-component 
+                <ManufacturingRadio
                     title='Тип биоробота'
                     name='type'
                     value1 = 'FrontEnd'
                     value2 = 'Design'
                 />
-                <radio-component 
+                <ManufacturingRadio
                     title='Стабилизатор'
                     name='gender'
                     value1 = 'Male'
@@ -22,7 +22,7 @@
                 >Произвести за 10 монет</button>
             </div>
             <div class='conteiner'>
-                <check-component 
+                <ManufacturingCheck 
                     count='4'
                     isBiomechanism='true'
                     :stock="stock.biomechanisms"
@@ -30,7 +30,7 @@
                     imgActive='/assets/img/biomechanism/biomechanism_active.svg'
                     imgDisabled='/assets/img/biomechanism/biomechanism_disable.svg'
                 />
-                <check-component 
+                <ManufacturingCheck 
                     count='4'
                     isProcessor='true'
                     :stock="stock.processors"
@@ -38,7 +38,7 @@
                     imgActive='/assets/img/processor/processor_active.svg'
                     imgDisabled='/assets/img/processor/processor_disable.svg'
                 />
-                <check-component 
+                <ManufacturingCheck 
                     count='1'
                     isSoul='true'
                     :stock="stock.souls"
@@ -52,8 +52,6 @@
 </template>
 
 <script>
-    Vue.component('radio-component', require('./Manufacture__radio.vue').default);
-    Vue.component('check-component', require('./Manufacture__check.vue').default);
     export default {
         data() {
             return {

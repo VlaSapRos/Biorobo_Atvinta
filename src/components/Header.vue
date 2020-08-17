@@ -1,6 +1,7 @@
 <template lang="html">
     <div>
         <h1> GGGGGG </h1>
+         <Example/> 
     </div>
 </template>
 

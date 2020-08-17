@@ -18,9 +18,6 @@
             }
         },
         computed: {
-            ...mapGetters([
-                'coinsDeclination'
-            ]),
             coinsText() {
                 this.$store.commit('coinsDeclination');
                 return this.$store.getters.showCoinsText

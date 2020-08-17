@@ -2,21 +2,21 @@
     <div>
         <h1>Рынок комплектующих</h1>
         <div class="market">
-        <card-component 
+        <MarketCard 
             pic='/assets/img/biomechanism.svg'
             title='Биомеханизм'
             buttonValue = 'Установить'
             cost = 7
             thing = 'biomechanisms'
         />
-        <card-component 
+        <MarketCard 
             pic='/assets/img/processor.svg'
             title='Процессор'
             buttonValue = 'Установить'
             cost = 5
             thing = 'processors'
         />
-        <card-component 
+        <MarketCard 
             pic='/assets/img/soul.svg'
             title='Душа'
             buttonValue = 'Установить'
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-    Vue.component('card-component', require('./MarketCard.vue').default);
     export default {
         data() {
             return {

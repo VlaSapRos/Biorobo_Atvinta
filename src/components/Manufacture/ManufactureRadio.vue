@@ -16,15 +16,6 @@
             value1: '',
             value2: '',
         },
-        computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText;
-            },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins;
-            },
-        },
     }
 </script>
 

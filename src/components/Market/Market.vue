@@ -30,22 +30,8 @@
 <script>
 import MarketCardVue from './MarketCard.vue';
     export default {
-        data() {
-            return {
-                checked:false,
-            }
-        },
         components: {
             'MarketCard': MarketCardVue,
-        },
-        computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText;
-            },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins;
-            },
         },
     }
 </script>

@@ -20,34 +20,8 @@ export default new Vuex.Store({
         },
     },
     mutations: {
-        coinsDeclination(state) {
-            let amount = state.amountCoins
-            if (amount != 11 && amount != 12 && amount != 13 && amount != 14) {
-                switch (amount % 10) {
-                    case 1 : state.coinsText = 'монета'; break; 
-                    case 2 :
-                    case 3 :
-                    case 4 : state.coinsText = 'монеты'; break;
-                    default : state.coinsText = 'монет';
-                }
-            } else { state.coinsText = 'монет'; }
-        },
-        addCoins (state, checkbox) {
-            let count;
-            if (checkbox){
-                count = 5;
-            }
-            else {
-                count = 1;
-            }
-            if( (state.amountCoins + count) <= 100 ) {
-                state.amountCoins += count;
-            }
-        },
-        subtractCoins (state, n) {
-            if(state.amountCoins > 0) {
-                state.amountCoins -= n;
-            }
+        addCoins (state, count) {
+            state.amountCoins += count;
         },
         buy (state, {thing,cost}) {
             if(state.amountCoins >= cost) {
@@ -61,8 +35,6 @@ export default new Vuex.Store({
         },
         sell (state, {thing,cost}) {
             if( (state.amountCoins + cost) <= 100 ) {
-                console.log(state.amountCoins); 
-                console.log(typeof cost); 
                 switch(thing) {
                     case 'biomechanisms' : 
                     if(state.stockroom.biomechanisms > 0) {
@@ -117,17 +89,6 @@ export default new Vuex.Store({
 
     },
     getters: {
-        showCoinsText (state) {
-            return state.coinsText
-        },
-        showAmountCoins (state) {
-            return state.amountCoins
-        },
-        showStockroom (state) {
-            return state.stockroom
-        },
-        showAmountRobots (state) {
-            return state.stockroom.robots
-        }
+
     }
 })

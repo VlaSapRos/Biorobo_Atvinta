@@ -52,12 +52,9 @@
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
+    import { mapState } from 'vuex';
 
-            }
-        },
+    export default {
         props: {
             title: '',
             name: '',
@@ -72,15 +69,6 @@
             imgNormal: '',
             imgActive: '',
             imgDisabled: '',
-        },
-        computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText;
-            },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins;
-            },
         },
     }
 </script>

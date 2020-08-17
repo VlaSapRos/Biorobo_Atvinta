@@ -25,7 +25,7 @@
                 <ManufactureCheck 
                     count='4'
                     isBiomechanism='true'
-                    :stock="stock.biomechanisms"
+                    :stock="stockroom.biomechanisms"
                     imgNormal='/assets/img/biomechanism/biomechanism.svg'
                     imgActive='/assets/img/biomechanism/biomechanism_active.svg'
                     imgDisabled='/assets/img/biomechanism/biomechanism_disable.svg'
@@ -33,7 +33,7 @@
                 <ManufactureCheck 
                     count='4'
                     isProcessor='true'
-                    :stock="stock.processors"
+                    :stock="stockroom.processors"
                     imgNormal='/assets/img/processor/processor.svg'
                     imgActive='/assets/img/processor/processor_active.svg'
                     imgDisabled='/assets/img/processor/processor_disable.svg'
@@ -41,7 +41,7 @@
                 <ManufactureCheck 
                     count='1'
                     isSoul='true'
-                    :stock="stock.souls"
+                    :stock="stockroom.souls"
                     imgNormal='/assets/img/soul/soul.svg'
                     imgActive='/assets/img/soul/soul_active.svg'
                     imgDisabled='/assets/img/soul/soul_disable.svg'
@@ -52,29 +52,21 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import ManufactureRadioVue from './ManufactureRadio.vue';
 import ManufactureCheckVue from './ManufactureCheck.vue';
+
     export default {
-        data() {
-            return {
-                checked:false,
-            }
-        },
         components: {
             'ManufactureRadio': ManufactureRadioVue,
             'ManufactureCheck': ManufactureCheckVue,
         },
         computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText;
-            },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins;
-            },
-            stock() {
-                return this.$store.getters.showStockroom
-            },
+            ...mapState([
+                'stockroom',
+                'amountCoins',
+            ]),
         },
     }
 </script>

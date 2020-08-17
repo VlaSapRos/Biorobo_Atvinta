@@ -3,7 +3,7 @@
         <h1>Кошелёк криптоволют</h1>
         <p class='coins'> {{ amountCoins + ' biorobo ' + coinsDeclination }} </p>
         <p class='check'>
-            <button @click="$store.commit('addCoins',checked)">Нацыганить</button>
+            <button @click="$store.commit('addCoins',(checked) ? 5 : 1)">Нацыганить</button>
             <input type="checkbox" id="checkbox" v-model="checked"> 
             Цыганить по 5 монет
         </p>

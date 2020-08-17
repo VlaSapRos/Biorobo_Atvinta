@@ -21,8 +21,6 @@ import { mapState } from 'vuex';
         computed: {
             ...mapState ([
                 'amountCoins',
-                'stockroom',
-                'errorText',
             ]),
             coinsDeclination() {
                 let coinsText = '';

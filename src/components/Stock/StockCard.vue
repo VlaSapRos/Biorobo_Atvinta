@@ -13,25 +13,11 @@
 
 <script>
     export default {
-        data() {
-            return {
-                checked:false,
-            }
-        },
         props: {
             title: '',
             count: 0,
             cost: 0,
             thing: '',
-        },
-        computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText;
-            },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins;
-            },
         },
     }
 </script>

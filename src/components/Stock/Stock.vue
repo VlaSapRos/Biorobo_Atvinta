@@ -3,19 +3,19 @@
         <h1>Склад</h1>
         <div class="stock">
         <StockCard 
-            :count='stock.biomechanisms'
+            :count='stockroom.biomechanisms'
             title='Биомеханизм'
             cost=5
             thing='biomechanisms'
         />
         <StockCard 
-            :count='stock.processors'
+            :count='stockroom.processors'
             title='Процессор'
             cost=3
             thing='processors'
         />
         <StockCard 
-            :count='stock.souls'
+            :count='stockroom.souls'
             title='Душа'
             cost=15
             thing='souls'
@@ -25,24 +25,16 @@
 </template>
 
 <script>
+    import { mapState } from 'vuex';
     import StockCardVue from "./StockCard.vue";
     export default {
-        data() {
-            return {
-                checked:false,
-            }
+        computed: {
+            ...mapState([
+                'stockroom',
+            ]),
         },
         components: {
             'StockCard': StockCardVue,
-        },
-        computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText;
-            },
-            stock() {
-                return this.$store.getters.showStockroom
-            },
         },
     };
 </script>

@@ -6,30 +6,39 @@
             pic='/assets/img/biomechanism/biomechanism_market.svg'
             title='Биомеханизм'
             buttonValue = 'Установить'
-            cost = 7
-            thing = 'biomechanisms'
+            :cost = 'cost.biomechanism'
+            v-on:buy="$store.commit('buyBiomechanism',7)"
         />
         <MarketCard 
             pic='/assets/img/processor/processor_market.svg'
             title='Процессор'
             buttonValue = 'Установить'
-            cost = 5
-            thing = 'processors'
+            :cost = 'cost.processor'
+            v-on:buy="$store.commit('buyProcessor',5)"
         />
         <MarketCard 
             pic='/assets/img/soul/soul_market.svg'
             title='Душа'
             buttonValue = 'Установить'
-            cost = 25
-            thing = 'souls'
+            :cost = 'cost.soul'
+            v-on:buy="$store.commit('buySoul',25)"
         />
         </div>
     </div>
 </template>
 
 <script>
-import MarketCardVue from './MarketCard.vue';
+    import MarketCardVue from './MarketCard.vue';
     export default {
+        data() {
+            return {
+                cost: {
+                    biomechanism: 7,
+                    processor: 5,
+                    soul: 25,
+                }
+            }
+        },
         components: {
             'MarketCard': MarketCardVue,
         },

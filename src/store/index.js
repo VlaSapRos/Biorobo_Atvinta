@@ -5,7 +5,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        coinsText: 'монет',
         amountCoins: 0,
         stockroom: {
             biomechanisms: 0,
@@ -23,15 +22,17 @@ export default new Vuex.Store({
         addCoins (state, count) {
             state.amountCoins += count;
         },
-        buy (state, {thing,cost}) {
-            if(state.amountCoins >= cost) {
-                state.amountCoins -= cost;
-                switch(thing) {
-                    case 'biomechanisms' : state.stockroom.biomechanisms++; break;
-                    case 'processors' : state.stockroom.processors++; break;
-                    case 'souls' : state.stockroom.souls++; break;
-                }
-            }
+        buyBiomechanism(state,cost) {
+            state.stockroom.biomechanisms++;
+            state.amountCoins -= cost;
+        },
+        buyProcessor(state,cost) {
+            state.stockroom.processors++;
+            state.amountCoins -= cost;
+        },
+        buySoul(state,cost) {
+            state.stockroom.souls++;
+            state.amountCoins -= cost;
         },
         sell (state, {thing,cost}) {
             if( (state.amountCoins + cost) <= 100 ) {

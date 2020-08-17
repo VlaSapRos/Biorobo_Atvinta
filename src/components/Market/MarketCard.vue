@@ -4,10 +4,10 @@
         <h1>{{ title }}</h1>
         <h2>Стоимость: {{ cost }} монет</h2>
         <button 
-            @click="$store.commit('buy',{thing:thing, cost:cost})"
             :disabled='amountCoins < cost'
             class = 'button' 
             v-bind:class="{ active: (amountCoins >= cost) }"
+            v-on:click="$emit('buy')"
         >
         Установить</button>
     </div>
@@ -22,7 +22,6 @@
             title: '',
             subtitle: '',
             cost: 0,
-            thing: ''
         },
         computed: {
             ...mapState([

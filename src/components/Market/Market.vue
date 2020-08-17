@@ -3,21 +3,21 @@
         <h1>Рынок комплектующих</h1>
         <div class="market">
         <MarketCard 
-            pic='/assets/img/biomechanism.svg'
+            pic='/assets/img/biomechanism/biomechanism_market.svg'
             title='Биомеханизм'
             buttonValue = 'Установить'
             cost = 7
             thing = 'biomechanisms'
         />
         <MarketCard 
-            pic='/assets/img/processor.svg'
+            pic='/assets/img/processor/processor_market.svg'
             title='Процессор'
             buttonValue = 'Установить'
             cost = 5
             thing = 'processors'
         />
         <MarketCard 
-            pic='/assets/img/soul.svg'
+            pic='/assets/img/soul/soul_market.svg'
             title='Душа'
             buttonValue = 'Установить'
             cost = 25
@@ -28,11 +28,15 @@
 </template>
 
 <script>
+import MarketCardVue from './MarketCard.vue';
     export default {
         data() {
             return {
                 checked:false,
             }
+        },
+        components: {
+            'MarketCard': MarketCardVue,
         },
         computed: {
             coinsText() {

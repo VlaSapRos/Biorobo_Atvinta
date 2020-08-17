@@ -7,7 +7,7 @@ export default {
     computed: mapState ([
         'coinsText'
     ])
-}
+};
 </script>
 <style lang="scss">
 

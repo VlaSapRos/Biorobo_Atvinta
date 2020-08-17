@@ -3,13 +3,13 @@
         <h1>Производство</h1>
         <div class="manufacturing">
             <div class='conteiner'>
-                <ManufacturingRadio
+                <ManufactureRadio
                     title='Тип биоробота'
                     name='type'
                     value1 = 'FrontEnd'
                     value2 = 'Design'
                 />
-                <ManufacturingRadio
+                <ManufactureRadio
                     title='Стабилизатор'
                     name='gender'
                     value1 = 'Male'
@@ -22,7 +22,7 @@
                 >Произвести за 10 монет</button>
             </div>
             <div class='conteiner'>
-                <ManufacturingCheck 
+                <ManufactureCheck 
                     count='4'
                     isBiomechanism='true'
                     :stock="stock.biomechanisms"
@@ -30,7 +30,7 @@
                     imgActive='/assets/img/biomechanism/biomechanism_active.svg'
                     imgDisabled='/assets/img/biomechanism/biomechanism_disable.svg'
                 />
-                <ManufacturingCheck 
+                <ManufactureCheck 
                     count='4'
                     isProcessor='true'
                     :stock="stock.processors"
@@ -38,7 +38,7 @@
                     imgActive='/assets/img/processor/processor_active.svg'
                     imgDisabled='/assets/img/processor/processor_disable.svg'
                 />
-                <ManufacturingCheck 
+                <ManufactureCheck 
                     count='1'
                     isSoul='true'
                     :stock="stock.souls"
@@ -52,11 +52,17 @@
 </template>
 
 <script>
+import ManufactureRadioVue from './ManufactureRadio.vue';
+import ManufactureCheckVue from './ManufactureCheck.vue';
     export default {
         data() {
             return {
                 checked:false,
             }
+        },
+        components: {
+            'ManufactureRadio': ManufactureRadioVue,
+            'ManufactureCheck': ManufactureCheckVue,
         },
         computed: {
             coinsText() {

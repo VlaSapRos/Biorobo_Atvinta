@@ -1,44 +1,32 @@
-<template>
+<template lang='html'>
     <div>
-        <!-- <div> 
-            <h2>Stockroom</h2>
-            <ul>
-                <li> 
-                    biomechanisms:
-                    {{ stockroom.biomechanisms }}
-                    <button @click="$store.commit('buy',{thing:'biomechanisms',cost:10})">buy</button>
-                    <button @click="$store.commit('sell',{thing:'biomechanisms',cost:10})">sell</button>
-                </li>
-                <li> 
-                    processors:
-                    {{ stockroom.processors }} 
-                    <button @click="$store.commit('buy',{thing:'processors',cost:10})">buy</button>
-                    <button @click="$store.commit('sell',{thing:'processors',cost:10})">sell</button>
-                </li>
-                <li> 
-                    souls:
-                    {{ stockroom.souls }} 
-                    <button @click="$store.commit('buy',{thing:'souls',cost:10})">buy</button>
-                    <button @click="$store.commit('sell',{thing:'souls',cost:10})">sell</button>
-                </li>
-            </ul>
-        </div>
-
-        <button @click="$store.commit('subtractCoins',1)">-1</button>
-
-        <br/>
-        <button @click="$store.commit('createRobot',{costRobots:costRobots})">CREATE!</button>
-        <p>{{ amountRobots }}</p> -->
+        <Example/>
         <MyHeader/>
         <Wallet/>
         <Market/>
         <Stock/>
-        <Manufacturing/>
+        <Manufacture/>
     </div>
 </template>
 
 <script>
+import ExampleVue from './Example.vue';
+import MyHeaderVue from './MyHeader.vue';
+import WalletVue from './Wallet.vue';
+import MarketVue from './Market/Market.vue';
+import StockVue from './Stock/Stock.vue';
+import ManufactureVue from './Manufacture/Manufacture.vue';
 
+export default {
+    components: {
+        'Example': ExampleVue,
+        'MyHeader': MyHeaderVue,
+        'Wallet': WalletVue,
+        'Market': MarketVue,
+        'Stock': StockVue,
+        'Manufacture': ManufactureVue,  
+    },
+}
 </script>
 
 <style lang="scss" scoped>

@@ -37,8 +37,8 @@
                     }
                 } else { state.coinsText = 'монет'; }
             },
-        },
-    }
+        }
+    };
 </script>
 
 <style lang="scss" scoped>

@@ -1,9 +1,17 @@
 <template lang="html">
     <div>
         <h1> GGGGGG </h1>
-         <Example/> 
     </div>
 </template>
+
+<script>
+import { mapState } from 'vuex';
+export default {
+    computed: mapState ([
+        'coinsText'
+    ])
+};
+</script>
 
 <style lang="scss">
  h1{color:red}

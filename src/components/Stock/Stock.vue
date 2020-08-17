@@ -25,11 +25,15 @@
 </template>
 
 <script>
+    import StockCardVue from "./StockCard.vue";
     export default {
         data() {
             return {
                 checked:false,
             }
+        },
+        components: {
+            'StockCard': StockCardVue,
         },
         computed: {
             coinsText() {
@@ -40,7 +44,7 @@
                 return this.$store.getters.showStockroom
             },
         },
-    }
+    };
 </script>
 
 <style lang="scss" scoped>

@@ -1,7 +1,7 @@
 <template lang="html">
     <div class='wallet'>
         <h1>Кошелёк криптоволют</h1>
-        <p class='coins'> {{ amountCoins + ' biorobo ' + coinsText }} </p>
+        <p class='coins'> {{ amountCoins + ' biorobo ' + coinsDeclination }} </p>
         <p class='check'>
             <button @click="$store.commit('addCoins',checked)">Нацыганить</button>
             <input type="checkbox" id="checkbox" v-model="checked"> 
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
     export default {
         data() {
             return {
@@ -18,24 +19,24 @@
             }
         },
         computed: {
-            coinsText() {
-                this.$store.commit('coinsDeclination');
-                return this.$store.getters.showCoinsText
-            },
-            amountCoins() {
-                return this.$store.getters.showAmountCoins
-            },
+            ...mapState ([
+                'amountCoins',
+                'stockroom',
+                'errorText',
+            ]),
             coinsDeclination() {
-                let amount = this.$store.getters.showAmountCoins
+                let coinsText = '';
+                let amount = this.amountCoins;
                 if (amount != 11 && amount != 12 && amount != 13 && amount != 14) {
                     switch (amount % 10) {
-                        case 1 : state.coinsText = 'монета'; break; 
+                        case 1 : coinsText = 'монета'; break; 
                         case 2 :
                         case 3 :
-                        case 4 : state.coinsText = 'монеты'; break;
-                        default : state.coinsText = 'монет';
+                        case 4 : coinsText = 'монеты'; break;
+                        default : coinsText = 'монет';
                     }
-                } else { state.coinsText = 'монет'; }
+                } else { coinsText = 'монет'; }
+                return coinsText;
             },
         }
     };

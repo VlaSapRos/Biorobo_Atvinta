@@ -18,7 +18,7 @@
                 <button 
                     class='button'
                     v-bind:class="{active: (amountCoins >= 10)}"
-                    :disabled='amountCoins < 10'
+                    :disabled='isBeCreated'
                 >Произвести за 10 монет</button>
             </div>
             <div class='conteiner'>
@@ -58,6 +58,11 @@ import ManufactureRadioVue from './ManufactureRadio.vue';
 import ManufactureCheckVue from './ManufactureCheck.vue';
 
     export default {
+        data(){
+            return {
+                isBeCreated: false,
+            }
+        },
         components: {
             'ManufactureRadio': ManufactureRadioVue,
             'ManufactureCheck': ManufactureCheckVue,
@@ -67,6 +72,9 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
                 'stockroom',
                 'amountCoins',
             ]),
+            isBeCreate() {
+                
+            }
         },
     }
 </script>

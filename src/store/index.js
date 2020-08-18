@@ -34,26 +34,17 @@ export default new Vuex.Store({
             state.stockroom.souls++;
             state.amountCoins -= cost;
         },
-        sell (state, {thing,cost}) {
-            if( (state.amountCoins + cost) <= 100 ) {
-                switch(thing) {
-                    case 'biomechanisms' : 
-                    if(state.stockroom.biomechanisms > 0) {
-                        state.stockroom.biomechanisms--;
-                        state.amountCoins += cost;
-                    } break;
-                    case 'processors' : 
-                    if(state.stockroom.processors > 0) {
-                        state.stockroom.processors--;
-                        state.amountCoins += cost;
-                    } break;
-                    case 'souls' : 
-                    if(state.stockroom.souls > 0) {
-                        state.stockroom.souls--;
-                        state.amountCoins += cost;
-                    } break;
-                }
-            }
+        sellBiomechanism(state,cost) {
+            state.stockroom.biomechanisms--;
+            state.amountCoins += cost;
+        },
+        sellProcessor(state,cost){
+            state.stockroom.processors--;
+            state.amountCoins += cost;
+        },
+        sellSoul(state,cost) {
+            state.stockroom.souls--;
+            state.amountCoins += cost;
         },
         createRobot (state, {costRobots}) {
             let enoughBiomechanisms,enoughProcessors,enoughSouls

@@ -3,21 +3,28 @@
         <h1>{{ title }}</h1>
         <h2>Стоимость: {{ cost }} монет</h2>
         <h1>{{ count }}</h1>
-        <button @click="$store.commit('sell',{thing:thing,cost:+cost})"
+        <button 
             :disabled='count < 1'
             class = 'button' 
             v-bind:class="{ active: (count > 0) }"
+            v-on:click="$emit((amountCoins+cost <= 100) ? 'sell' : 'overHundred')"
         >Продать</button>
     </div>
 </template>
 
 <script>
+    import { mapState } from 'vuex';
     export default {
         props: {
             title: '',
             count: 0,
             cost: 0,
             thing: '',
+        },
+        computed: {
+            ...mapState([
+                'amountCoins',
+            ]),
         },
     }
 </script>

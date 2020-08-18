@@ -3,7 +3,9 @@
         <h1>Кошелёк криптоволют</h1>
         <p class='coins'> {{ amountCoins + ' biorobo ' + coinsDeclination }} </p>
         <p class='check'>
-            <button @click="$store.commit('addCoins',(checked) ? 5 : 1)">Нацыганить</button>
+            <button v-on:click="$emit(
+                (amountCoins +( (checked)? 5 : 1 ) <= 100) ? 'addCoins' : 'overHundred',checked)"
+            >Нацыганить</button>
             <input type="checkbox" id="checkbox" v-model="checked"> 
             Цыганить по 5 монет
         </p>
@@ -35,6 +37,12 @@ import { mapState } from 'vuex';
                     }
                 } else { coinsText = 'монет'; }
                 return coinsText;
+            },
+            checkWallet() {
+                if( (amountCoins + ( (checked) ? 5 : 1 ) ) > 100) {
+                    return 'overHundred'
+                }
+                else {return 'addCoins'}
             },
         }
     };

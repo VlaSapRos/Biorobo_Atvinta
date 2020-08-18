@@ -2,7 +2,9 @@
     <div>
         <Example/>
         <MyHeader/>
-        <Wallet/>
+        <Wallet 
+            v-on:addCoins="$store.commit('addCoins',($event) ? 5 : 1)" 
+            v-on:overHundred=""/>
         <Market/>
         <Stock/>
         <Manufacture/>

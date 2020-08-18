@@ -5,20 +5,20 @@
         <StockCard 
             :count='stockroom.biomechanisms'
             title='Биомеханизм'
-            cost=5
-            thing='biomechanisms'
+            :cost='cost.biomechanism'
+            v-on:sell="$store.commit('sellBiomechanism',cost.biomechanism)"
         />
         <StockCard 
             :count='stockroom.processors'
             title='Процессор'
-            cost=3
-            thing='processors'
+            :cost='cost.processor'
+            v-on:sell="$store.commit('sellProcessor',cost.processor)"
         />
         <StockCard 
             :count='stockroom.souls'
             title='Душа'
-            cost=15
-            thing='souls'
+            :cost='cost.soul'
+            v-on:sell="$store.commit('sellSoul',cost.soul)"
         />
         </div>
     </div>
@@ -28,6 +28,15 @@
     import { mapState } from 'vuex';
     import StockCardVue from "./StockCard.vue";
     export default {
+        data() {
+            return {
+                cost: {
+                    biomechanism: 5,
+                    processor: 3,
+                    soul: 15,
+                }
+            }
+        },
         computed: {
             ...mapState([
                 'stockroom',

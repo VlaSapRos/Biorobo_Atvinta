@@ -1,60 +1,97 @@
 <template lang="html">
     <div class='checkboxs'>
-        <button 
-            v-if="(count>=1)"
-            class='checkbox'
-            v-bind:class="{ 
-                biomechanism: isBiomechanism,
-                processor: isProcessor, 
-                soul: isSoul, 
-                normal: (stock >= 1), 
-                active: isActive, 
-            }"
-            :disabled="stock < 1"
-        ><img :src='imgNormal'></button>
-        <button 
-            v-if="(count>=2)"
-            class='checkbox'
-            v-bind:class="{ 
-                biomechanism: isBiomechanism,
-                processor: isProcessor, 
-                soul: isSoul, 
-                normal: (stock >= 2), 
-                active: isActive, 
-            }"
-            :disabled='stock < 2'
-        ><img :src='imgNormal'></button>
+        <div class=''>
+            <svgBiomechanism 
+                number='1'
+                v-if='isBiomechanism'
+            />
+
+            <svgProcessor
+                number='1'
+                v-if='isProcessor'
+            />
+
+            <svgSoul 
+                number='1'
+                v-if='isSoul'
+            /> 
+        </div>
+        <!-- <div>
+
+        </div>
+       
         <button 
             v-if="(count>=3)"
             class='checkbox'
             v-bind:class="{ 
-                biomechanism: isBiomechanism,
-                processor: isProcessor, 
-                soul: isSoul, 
                 normal: (stock >= 3), 
                 active: isActive, 
             }"
             :disabled="stock < 3"
-        ><img :src='imgNormal'></button>
+        >
+            <svgBiomechanism 
+                :fillOrange='fillOrange' 
+                :fillWhite='fillWhite' 
+                v-on:change-color="!fillOrange;!fillWhite"
+                v-if='isBiomechanism'
+            /> 
+            <svgProcessor
+                :fillOrange='fillOrange' 
+                :fillWhite='fillWhite' 
+                v-on:change-color="!fillOrange;!fillWhite"
+                v-if='isProcessor'
+            /> 
+            <scgSoul 
+                :fillOrange='fillOrange' 
+                :fillWhite='fillWhite' 
+                v-on:change-color="!fillOrange;!fillWhite"
+                v-if='isSoul'
+            /> 
+        </button>
         <button 
             v-if="(count>=4)"
             class='checkbox'
             v-bind:class="{ 
-                biomechanism: isBiomechanism,
-                processor: isProcessor, 
-                soul: isSoul, 
                 normal: (stock >= 4), 
                 active: isActive, 
             }"
             :disabled='stock < 4'
-        ><img :src='imgNormal'></button>
+        >
+            <svgBiomechanism 
+                :fillOrange='fillOrange' 
+                :fillWhite='fillWhite' 
+                v-on:change-color="!fillOrange;!fillWhite"
+                v-if='isBiomechanism'
+            /> 
+            <svgProcessor
+                :fillOrange='fillOrange' 
+                :fillWhite='fillWhite' 
+                v-on:change-color="!fillOrange;!fillWhite"
+                v-if='isProcessor'
+            /> 
+            <scgSoul 
+                :fillOrange='fillOrange' 
+                :fillWhite='fillWhite' 
+                v-on:change-color="!fillOrange;!fillWhite"
+                v-if='isSoul'
+            /> 
+        </button> -->
     </div>
 </template>
 
 <script>
     import { mapState } from 'vuex';
+import ManufactureBiomechanismSVGVue from './ManufactureSVG/ManufactureBiomechanismSVG.vue';
+import ManufactureProcessorSVGVue from './ManufactureSVG/ManufactureProcessorSVG.vue';
+import ManufactureSoulSVGVue from './ManufactureSVG/ManufacturesoulSVG.vue';
 
     export default {
+        data() {
+            return {
+                fillOrange: false,
+                fillWhite: true,
+            }
+        },
         props: {
             title: '',
             name: '',
@@ -69,6 +106,11 @@
             imgNormal: '',
             imgActive: '',
             imgDisabled: '',
+        },
+        components: {
+            svgBiomechanism: ManufactureBiomechanismSVGVue,
+            svgProcessor: ManufactureProcessorSVGVue,
+            svgSoul: ManufactureSoulSVGVue,
         },
     }
 </script>
@@ -93,28 +135,5 @@
         display: flex;
         flex-direction: row;
     }
-    .checkbox {
-        background-color: #333940;
-        border-radius: 4px;
-        width: 48px;
-        height: 48px;
-    }
-    .active {
-        border: 2px solid #FF7F22;
-    }
-    .normal {
-        border: 2px solid white;
-    }
-    .biomechanism {
 
-    }
-    .processor {
-
-    }
-    .soul {
-
-    }
-    .checkbox:disabled {
-        border: 2px solid #333940;
-    }
 </style>

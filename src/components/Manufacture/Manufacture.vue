@@ -26,25 +26,16 @@
                     count='4'
                     isBiomechanism='true'
                     :stock="stockroom.biomechanisms"
-                    imgNormal='/assets/img/biomechanism/biomechanism.svg'
-                    imgActive='/assets/img/biomechanism/biomechanism_active.svg'
-                    imgDisabled='/assets/img/biomechanism/biomechanism_disable.svg'
                 />
                 <ManufactureCheck 
                     count='4'
                     isProcessor='true'
                     :stock="stockroom.processors"
-                    imgNormal='/assets/img/processor/processor.svg'
-                    imgActive='/assets/img/processor/processor_active.svg'
-                    imgDisabled='/assets/img/processor/processor_disable.svg'
                 />
                 <ManufactureCheck 
                     count='1'
                     isSoul='true'
                     :stock="stockroom.souls"
-                    imgNormal='/assets/img/soul/soul.svg'
-                    imgActive='/assets/img/soul/soul_active.svg'
-                    imgDisabled='/assets/img/soul/soul_disable.svg'
                 />
             </div>
         </div>

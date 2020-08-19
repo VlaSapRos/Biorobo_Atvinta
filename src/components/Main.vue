@@ -37,12 +37,15 @@ export default {
         display: flex;
         flex-direction: column;
     }
+
     h1 {
         background-color: burlywood;
         color: blue
     }
+
     h2 {
         background-color: burlywood;
         color: blue
     }
+
 </style>

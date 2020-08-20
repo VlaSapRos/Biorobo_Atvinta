@@ -116,4 +116,37 @@ button:active,
 button:focus {
   outline: 0 !important;
 }
+// **********
+//  CheckBox
+// **********
+.conteiner {
+  display: flex;
+  flex-direction: row;
+}
+.checkbox {
+  background-color: #333940;
+  border: 2px solid #333940;
+  border-radius: 4px;
+  width: 48px;
+  height: 48px;
+  margin: 5px;
+}
+.checkbox:disabled {
+  background-color: #333940;
+  border: 2px solid #333940;
+}
+.active {
+  border: 2px solid #FF7F22;
+  background-color: #222B33;
+}
+.fillGray {
+  fill:#4C5865;
+}
 
+.fillWhite {
+  fill:white;
+}
+
+.fillOrange {
+  fill:#FF7F22;
+}

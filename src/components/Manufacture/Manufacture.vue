@@ -1,5 +1,9 @@
 <template lang="html">
     <div>
+        {{ countBiomechanisms }}
+        {{ countProcessors }}
+        {{ countSouls }}
+        {{ isBeCreate  }}
         <h1>Производство</h1>
         <div class="manufacturing">
             <div class='conteiner'>
@@ -17,25 +21,29 @@
                 />
                 <button 
                     class='button'
-                    v-bind:class="{active: (amountCoins >= 10)}"
-                    :disabled='isBeCreated'
-                >Произвести за 10 монет</button>
+                    v-bind:class="{active: isBeCreate}"
+                    :disabled='!isBeCreate'
+                    @click="$store.commit('createRobot',costRobot)"
+                    >Произвести за 10 монет</button>
             </div>
             <div class='conteiner'>
                 <ManufactureCheck 
                     count='4'
                     isBiomechanism='true'
                     :stock="stockroom.biomechanisms"
+                    v-on:count="countBiomechanisms+=$event"
                 />
                 <ManufactureCheck 
                     count='4'
                     isProcessor='true'
                     :stock="stockroom.processors"
+                    v-on:count="countProcessors+=$event"
                 />
                 <ManufactureCheck 
                     count='1'
                     isSoul='true'
                     :stock="stockroom.souls"
+                    v-on:count="countSouls+=$event"
                 />
             </div>
         </div>
@@ -51,7 +59,15 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
     export default {
         data(){
             return {
+                costRobot: {
+                    biomechanisms:4,
+                    processors:4,
+                    souls:1,
+                },
                 isBeCreated: false,
+                countBiomechanisms:0,
+                countProcessors:0,
+                countSouls:0,
             }
         },
         components: {
@@ -64,8 +80,14 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
                 'amountCoins',
             ]),
             isBeCreate() {
-                
-            }
+                if (this.amountCoins >= 10 
+                && this.costRobot.biomechanisms == this.countBiomechanisms 
+                && this.costRobot.processors == this.countProcessors 
+                && this.costRobot.souls == this.countSouls) {
+                    return true
+                }
+                else { return false}
+            },
         },
     }
 </script>
@@ -107,7 +129,9 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
         color: #FFFFFF;
     }
     .active {
-        background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
+        color: #ffffff;
+        border:2px solid #FF7F22; 
+        background-color: #222B33;
     }
     .button:disabled {
         background-color: #222B33;

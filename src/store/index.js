@@ -47,6 +47,10 @@ export default new Vuex.Store({
             state.amountCoins += cost;
         },
         createRobot (state, costRobots) {
+            state.stockroom.robots += 1;
+            state.stockroom.biomechanisms -= costRobots.biomechanisms;
+            state.stockroom.processors -= costRobots.processors;
+            state.stockroom.souls -= costRobots.souls;
             // let enoughBiomechanisms,enoughProcessors,enoughSouls
             // if (state.stockroom.biomechanisms >= costRobots.biomechanisms) { enoughBiomechanisms = true }
             // else { 
@@ -64,10 +68,10 @@ export default new Vuex.Store({
             //     state.errorText.part3 = 'Вам не хватает душ.';
             // }
             // if (enoughBiomechanisms && enoughProcessors && enoughSouls) {
-                state.stockroom.robots += 1;
-                state.stockroom.biomechanisms -= costRobots.biomechanisms;
-                state.stockroom.processors -= costRobots.processors;
-                state.stockroom.souls -= costRobots.souls;
+                // state.stockroom.robots += 1;
+                // state.stockroom.biomechanisms -= costRobots.biomechanisms;
+                // state.stockroom.processors -= costRobots.processors;
+                // state.stockroom.souls -= costRobots.souls;
             // }
             // else {
             //     alert(state.errorText.part1 + ' ' + state.errorText.part2 + ' ' + state.errorText.part3);

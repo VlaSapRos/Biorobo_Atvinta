@@ -3,6 +3,7 @@
         v-bind:class='{ active:( fillOrange ) }' 
         class="checkbox" 
         v-on:click="$emit('count',(fillOrange)?-1:1)"
+        v-on:disabled="$emit('count',-1); fillOrange=!fillOrange"
         @click="fillOrange=!fillOrange" 
         :disabled='+stockroom.biomechanisms<+number'
     >

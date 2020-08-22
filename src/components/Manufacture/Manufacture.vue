@@ -23,7 +23,7 @@
                     class='button'
                     v-bind:class="{active: isBeCreate}"
                     :disabled='!isBeCreate'
-                    @click="$store.commit('createRobot',costRobot)"
+                    @click="createRobot()"
                     >Произвести за 10 монет</button>
             </div>
             <div class='conteiner'>
@@ -70,6 +70,14 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
                 countSouls:0,
             }
         },
+        methods: {
+            createRobot : function () {
+                if(this.costRobot.biomechanisms <= this.stockroom.biomechanisms 
+                && this.costRobot.processors <= this.stockroom.processors 
+                && this.costRobot.souls <= this.stockroom.souls) 
+                {this.$store.commit('createRobot',this.costRobot)}
+            }
+        },
         components: {
             'ManufactureRadio': ManufactureRadioVue,
             'ManufactureCheck': ManufactureCheckVue,
@@ -83,7 +91,10 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
                 if (this.amountCoins >= 10 
                 && this.costRobot.biomechanisms == this.countBiomechanisms 
                 && this.costRobot.processors == this.countProcessors 
-                && this.costRobot.souls == this.countSouls) {
+                && this.costRobot.souls == this.countSouls
+                && this.costRobot.biomechanisms <= this.stockroom.biomechanisms 
+                && this.costRobot.processors <= this.stockroom.processors 
+                && this.costRobot.souls <= this.stockroom.souls) {
                     return true
                 }
                 else { return false}

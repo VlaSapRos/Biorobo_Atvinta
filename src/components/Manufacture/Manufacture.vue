@@ -1,9 +1,5 @@
 <template lang="html">
     <div>
-        {{ countBiomechanisms }}
-        {{ countProcessors }}
-        {{ countSouls }}
-        {{ isBeCreate  }}
         <h1>Производство</h1>
         <div class="manufacturing">
             <div class='conteiner'>
@@ -63,6 +59,7 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
                     biomechanisms:4,
                     processors:4,
                     souls:1,
+                    coins:10,
                 },
                 isBeCreated: false,
                 countBiomechanisms:0,

@@ -3,8 +3,10 @@
         <h1>Кошелёк криптоволют</h1>
         <p class='coins'> {{ amountCoins + ' biorobo ' + coinsDeclination }} </p>
         <p class='check'>
-            <button v-on:click="$emit(
-                (amountCoins +( (checked)? 5 : 1 ) <= 100) ? 'addCoins' : 'overHundred',checked)"
+            <div class='conteinerRelative'>
+                <coin v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)'/>
+            </div>
+            <button @click="addCoins(checked)"
             >Нацыганить</button>
             <input type="checkbox" id="checkbox" v-model="checked"> 
             Цыганить по 5 монет
@@ -14,11 +16,18 @@
 
 <script>
 import { mapState } from 'vuex';
+import { createElement } from 'vue';
+import WalletCoinVue from './WalletCoin.vue';
     export default {
         data() {
             return {
                 checked:false,
+                coins: [],
             }
+        },
+        components:{
+            'coin': WalletCoinVue,
+
         },
         computed: {
             ...mapState ([
@@ -38,13 +47,27 @@ import { mapState } from 'vuex';
                 } else { coinsText = 'монет'; }
                 return coinsText;
             },
-            checkWallet() {
+            checkWallet(checked) {
                 if( (amountCoins + ( (checked) ? 5 : 1 ) ) > 100) {
                     return 'overHundred'
                 }
                 else {return 'addCoins'}
             },
-        }
+
+            
+        },
+        mounted: function countCoins() {
+            for (let i=0; i<100; i++){
+                this.coins[i]= {number:i};
+            }
+        },
+        methods:{
+            addCoins: function(checked) {
+                if ((this.amountCoins + ((checked) ? 5 : 1)) <= 100 ) {
+                    this.$store.commit('addCoins',(checked) ? 5 : 1)
+                } 
+            }
+        },
     };
 </script>
 
@@ -89,6 +112,10 @@ import { mapState } from 'vuex';
     }
     .wallet {
         display: block;
+    }
+    .conteinerRelative {
+        position: relative;
+        height: 20px;
     }
 </style>
 

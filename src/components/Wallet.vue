@@ -1,16 +1,16 @@
 <template lang="html">
     <div class='wallet'>
-        <h1>Кошелёк криптоволют</h1>
-        <p class='coins'> {{ amountCoins + ' biorobo ' + coinsDeclination }} </p>
-        <p class='check'>
-            <div class='conteinerRelative'>
+        <h1 class='rubric'>Кошелёк криптоволют</h1>
+            <div class='coinConteiner'>
                 <coin v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)'/>
             </div>
-            <button @click="addCoins(checked)"
-            >Нацыганить</button>
-            <input type="checkbox" id="checkbox" v-model="checked"> 
-            Цыганить по 5 монет
-        </p>
+        <p class='coins'> <b class='coinsBold'>{{ amountCoins }}</b> {{' biorobo ' + coinsDeclination }} </p>
+            <div>    
+                <button @click="addCoins(checked)"
+                >Нацыганить</button>
+                <input type="checkbox" id="checkbox" v-model="checked"> 
+                Цыганить по 5 монет
+            </div>    
     </div>
 </template>
 
@@ -74,19 +74,17 @@ import WalletCoinVue from './WalletCoin.vue';
 </script>
 
 <style lang="scss" scoped>
-    h1 {
-        font-family: 'Montserrat_regular';
+
+    .coins {
         font-style: normal;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 32px;
         line-height: 40px;
-        /* identical to box height, or 125% */
-        color: #FFFFFF;
+        color: #A3B8CC;
     }
-    .coins {
-        font-family: 'Montserrat_regular';
+    .coinsBold {
         font-style: normal;
-        font-weight: 600;
+        font-weight: 1200;
         font-size: 32px;
         line-height: 40px;
         color: #A3B8CC;
@@ -113,9 +111,13 @@ import WalletCoinVue from './WalletCoin.vue';
         border-bottom: 1px solid rgba(255, 127, 34, 0.5);
     }
     .wallet {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        padding-left: 130px;
     }
-    .conteinerRelative {
+    .coinConteiner {
+        padding: 0;
+        margin: 0;
         position: relative;
         height: 20px;
     }

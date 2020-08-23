@@ -9,32 +9,33 @@
     </defs>
   </svg>
 </template>
+
 <script>
-import { mapState } from 'vuex';
-export default {
-  data() {
-    return {
-      coin:1
+  import { mapState } from 'vuex';
+  export default {
+    data() {
+      return {
+        coin:1
       }
-  },
-  ...mapState ([
-    'amountCoins',
-  ]),
-  props:{
-    number:0,
-  },
-  methods: {
-    positionCalculation : function (number) {
-      let location = 10 * number;
-      return `${location}px`
-   }
-  },
-  render: function (createElement) {
+    },
+    ...mapState ([
+      'amountCoins',
+    ]),
+    props:{
+      number:0,
+    },
+    methods: {
+      positionCalculation : function (number) {
+        let location = 10 * number;
+        return `${location}px`
+    }
+    },
+    render: function (createElement) {
       Array.apply(null, { length: this.amountCoins }).map(function (currentValue,index) {
         return createElement('p', number=index)
       })
-  },
-}
+    },
+  }
 </script>
 
 <style lang="scss" scoped>

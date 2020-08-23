@@ -1,8 +1,8 @@
 <template lang="html">
-    <div>
-        <h1>Производство</h1>
-        <div class="manufacturing">
-            <div class='conteiner'>
+    <div class="manufacture">
+        <h1 class='rubric'>Производство</h1>
+        <div class='conteiner'>
+            <div class='conteiner conteiner_column'>
                 <ManufactureRadio
                     title='Тип биоробота'
                     name='type'
@@ -22,7 +22,7 @@
                     @click="createRobot()"
                     >Произвести за 10 монет</button>
             </div>
-            <div class='conteiner'>
+            <div class='conteiner conteiner_column'>
                 <ManufactureCheck 
                     count='4'
                     isBiomechanism='true'
@@ -42,6 +42,7 @@
                     v-on:count="countSouls+=$event"
                 />
             </div>
+            <ManufactureSilhouette />
         </div>
     </div>
 </template>
@@ -51,6 +52,7 @@ import { mapState } from 'vuex';
 
 import ManufactureRadioVue from './ManufactureRadio.vue';
 import ManufactureCheckVue from './ManufactureCheck.vue';
+import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
 
     export default {
         data(){
@@ -80,6 +82,7 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
         components: {
             'ManufactureRadio': ManufactureRadioVue,
             'ManufactureCheck': ManufactureCheckVue,
+            'ManufactureSilhouette': ManufactureSilhouetteVue
         },
         computed: {
             ...mapState([
@@ -103,28 +106,14 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
 </script>
 
 <style lang="scss" scoped>
-    h1 {
-        left: 0;
-        top: 0;
-        font-family: 'Montserrat_regular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 40px;
-        color: #FFFFFF;
-    }
-    .manufacturing {
+    .manufacture {
+        display:flex;
         justify-content: space-between;
-        flex-direction: row;
+        flex-direction: column;
         align-content: center;
         align-items: center;
-        display:flex;
         width: 1016px;
         padding: 0px 106px;
-    }
-    .conteiner{
-        display: flex;
-        flex-direction: column;
     }
     .button {
         width: 236px;

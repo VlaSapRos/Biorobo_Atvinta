@@ -4,13 +4,12 @@
         <MyHeader/>
         <Wallet v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')"/>
         <Market/>
-        <Stock v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')"/>/>
-        <Manufacture v-on:robotCreated="modalTrue('Биоробот произведён', 'Поздравляем!', 'Вы произвели биоробота', '')"/>/>
+        <Stock v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')"/>
+        <Manufacture v-on:robotCreated="modalTrue('Биоробот произведён', 'Поздравляем!', 'Вы произвели биоробота', '')"/>
     </div>
 </template>
 
 <script>
-import ExampleVue from './Example.vue';
 import MyHeaderVue from './MyHeader.vue';
 import WalletVue from './Wallet.vue';
 import MarketVue from './Market/Market.vue';
@@ -40,7 +39,6 @@ export default {
         }
     },
     components: {
-        'Example': ExampleVue,
         'MyHeader': MyHeaderVue,
         'Wallet': WalletVue,
         'Market': MarketVue,
@@ -57,15 +55,7 @@ export default {
         display: flex;
         flex-direction: column;
     }
-
-    h1 {
-        background-color: burlywood;
-        color: blue
+    .pac-man{
+        position: absolute;
     }
-
-    h2 {
-        background-color: burlywood;
-        color: blue
-    }
-
 </style>

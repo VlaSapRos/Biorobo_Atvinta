@@ -12,7 +12,7 @@
         Установить</button>
     </div>
 </template>
-        // 
+
 <script>
     import { mapState } from 'vuex';
 
@@ -68,8 +68,12 @@
         line-height: 24px;
         text-align: center;
         color: #FFFFFF;
+        border: none;
     }
     .active {
         background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
+    }
+    .button:disabled {
+        color: #7D90A6;
     }
 </style>

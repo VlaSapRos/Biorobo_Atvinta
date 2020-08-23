@@ -71,8 +71,10 @@ import ManufactureCheckVue from './ManufactureCheck.vue';
             createRobot : function () {
                 if(this.costRobot.biomechanisms <= this.stockroom.biomechanisms 
                 && this.costRobot.processors <= this.stockroom.processors 
-                && this.costRobot.souls <= this.stockroom.souls) 
-                {this.$store.commit('createRobot',this.costRobot)}
+                && this.costRobot.souls <= this.stockroom.souls) {
+                    this.$emit('robotCreated');   
+                    this.$store.commit('createRobot',this.costRobot);
+                }
             }
         },
         components: {

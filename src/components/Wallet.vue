@@ -65,7 +65,9 @@ import WalletCoinVue from './WalletCoin.vue';
             addCoins: function(checked) {
                 if ((this.amountCoins + ((checked) ? 5 : 1)) <= 100 ) {
                     this.$store.commit('addCoins',(checked) ? 5 : 1)
-                } 
+                } else {
+                    this.$emit('overHundred');
+                    }
             }
         },
     };

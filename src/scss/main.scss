@@ -3,6 +3,23 @@
 @import "utils/mixins";
 @import "utils/fonts";
 
+//*******************************
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1440px;
+  padding: 48px;
+  margin: 0;
+  box-sizing: border-box;
+  // background: #4C5865;
+  // background: #A3B8CC;
+  // background: #E5E5E5;
+  background: #222B33;
+}
+//*******************************
+
+
 html {
   line-height: $mainLineHeight;
 	font-size: $mainFontSize;
@@ -88,7 +105,6 @@ section, .section {
 
 .fontsList{
   font-size: 16px;
-  padding: 1;
   margin-left: 2em;
   list-style-type: square;
 }
@@ -97,19 +113,7 @@ section, .section {
   font-family: "VLADOVSKIY";
 }
 
-.background {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 1440px;
-  padding: 48px;
-  // box-sizing: border-box;
-  // background: #4C5865;
-  // background: #A3B8CC;
-  // background: #E5E5E5;
-  background: #222B33;
-  
-}
+
 
 button, 
 button:active, 

@@ -4,14 +4,29 @@
         <div class='conteiner radioConteinerSize'>
             <div class='radioConteiner '>
                 <div class='radioWrapper'>
-                    <input class='radioInput' type='radio' :id="name+'_1'" :name='name'> 
-                    <label class='radioLabel' :for="name+'_1'"/>
+                    <input checked 
+                        class='radioInput'
+                        type='radio' 
+                        :id="name+'_1'" 
+                        :name='name'
+                        v-model='picked'
+                        :value='value1'
+                        v-on:change="$emit('roboTypeChange',picked)"
+                    > 
+                    <label class='radioLabel' :for="name+'_1'" />
                 </div>
                 <p class=radioText>{{ value1 }}</p>
             </div>
             <div class='radioConteiner '> 
                 <div class='radioWrapper'>
-                    <input class='radioInput' type='radio' :id="name+'_2'" :name='name'> 
+                    <input class='radioInput' 
+                        type='radio' 
+                        :id="name+'_2'" 
+                        :name='name'
+                        v-model='picked'
+                        :value='value2'
+                        v-on:change="$emit('roboTypeChange',picked)"
+                    > 
                     <label class='radioLabel' :for="name+'_2'"/>
                 </div>
                 <p class=radioText>{{ value2 }}</p> 
@@ -22,6 +37,11 @@
 
 <script>
     export default {
+        data() {
+            return {
+                picked: this.value1
+            }
+        },
         props: {
             title: '',
             name: '',
@@ -69,7 +89,7 @@
         border: 2px solid #A3B8CC;
         border-radius: 50%;
     }
-    .radioLabel:after {
+    .radioLabel::after {
         content: '';
         height: 16px;
         width: 16px;
@@ -81,13 +101,6 @@
         left: 4px;
         opacity: 0;
     }    
-    .radioLabel:after {
-        height: 16px;
-        width: 16px;
-        background-color: #FF7F22;
-        border-radius: 50%;
-        z-index: 10;
-    }
     .radioText {
         display: flex;
         align-items: center;
@@ -97,7 +110,7 @@
     .radioConteinerSize {
         width: 237px;
     }
-    .radioInput:checked + .radioLabel:after {
+    .radioInput:checked + .radioLabel::after {
         opacity: 1;
     }
 

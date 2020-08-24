@@ -3,17 +3,20 @@
         <h1 class='rubric'>Производство</h1>
         <div class='conteiner'>
             <div class='conteiner conteiner_column'>
+                {{roboType}}
                 <ManufactureRadio
                     title='Тип биоробота'
                     name='type'
                     value1 = 'FrontEnd'
                     value2 = 'Design'
+                    v-on:roboTypeChange='roboType.type=$event; roboChange()'
                 />
                 <ManufactureRadio
                     title='Стабилизатор'
                     name='gender'
                     value1 = 'Male'
                     value2 = 'Female'
+                    v-on:roboTypeChange='roboType.stabilizer=$event; roboChange()'
                 />
                 <button 
                     class='button'
@@ -67,6 +70,10 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
                 countBiomechanisms:0,
                 countProcessors:0,
                 countSouls:0,
+                roboType:{
+                    stabilizer: 11,
+                    type: 22,
+                }
             }
         },
         methods: {
@@ -101,6 +108,13 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
                 }
                 else { return false}
             },
+        },
+        methods: {
+            roboChange: function () {
+                if (this.roboType.stabilizer !== undefined && this.roboType.type !== undefined){
+                    console.log(111)
+                }
+            }
         },
     }
 </script>

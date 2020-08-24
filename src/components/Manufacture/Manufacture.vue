@@ -9,14 +9,14 @@
                     name='type'
                     value1 = 'FrontEnd'
                     value2 = 'Design'
-                    v-on:roboTypeChange='roboType.type=$event; roboChange()'
+                    v-on:roboTypeChange='roboType.type=$event'
                 />
                 <ManufactureRadio
                     title='Стабилизатор'
                     name='gender'
                     value1 = 'Male'
                     value2 = 'Female'
-                    v-on:roboTypeChange='roboType.stabilizer=$event; roboChange()'
+                    v-on:roboTypeChange='roboType.stabilizer=$event'
                 />
                 <button 
                     class='button'
@@ -45,7 +45,7 @@
                     v-on:count="countSouls+=$event"
                 />
             </div>
-            <ManufactureSilhouette />
+            <ManufactureSilhouette :roboType='roboType'/>
         </div>
     </div>
 </template>
@@ -56,7 +56,7 @@ import { mapState } from 'vuex';
 import ManufactureRadioVue from './ManufactureRadio.vue';
 import ManufactureCheckVue from './ManufactureCheck.vue';
 import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
-
+import { MALE, FAMALE, FRONTEND, DESIGN } from '../../const.js'
     export default {
         data(){
             return {
@@ -71,9 +71,10 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
                 countProcessors:0,
                 countSouls:0,
                 roboType:{
-                    stabilizer: 11,
-                    type: 22,
+                    stabilizer: MALE,
+                    type: FRONTEND,
                 }
+
             }
         },
         methods: {
@@ -110,11 +111,7 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
             },
         },
         methods: {
-            roboChange: function () {
-                if (this.roboType.stabilizer !== undefined && this.roboType.type !== undefined){
-                    console.log(111)
-                }
-            }
+
         },
     }
 </script>

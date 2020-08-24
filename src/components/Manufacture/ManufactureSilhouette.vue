@@ -1,34 +1,33 @@
 <template lang="html">
     <div class='silhouette'>
       <img :src="'assets/img/robots/' + derictory + '/'+ picture + '.svg'">
-      {{ro}}
     </div>
 </template>
 
 <script>
   export default {
-    data(){
-      return {
-        derictory:'canNotBeCreated',
-        picture:'maleFrontend',
-      }
-    },
     props: {
-      roboType:{},
+      stabilizer:'',
+      type:'',
+      isBeCreate:'',
+      robotCreated:'',
     },
-    watch:{
-      roboType: function (val) {
-        cosole.log(1)
-        let robotType = this.roboType.stabilizer + this.roboType.type;
-        switch (robotType) {
-          case (MALE+FRONTEND): this.picture='maleFrontend'; break;
-          case (MALE+DESIGN): this.picture='maleDesign'; break;
-          case (FAMALE+FRONTEND): this.picture='famaleFrontend'; break;
-          case (FAMALE+DESIGN): this.picture='maleDesign'; break;
+    computed: {
+      picture: function() {
+        switch (this.stabilizer + this.type) {
+          case ('MaleFrontEnd'): return 'maleFrontend'; break;
+          case ('MaleDesign'): return 'maleDesign'; break;
+          case ('FemaleFrontEnd'): return 'famaleFrontend'; break;
+          case ('FemaleDesign'): return 'famaleDesign'; break;
           default:break;
           }
+      },
+      derictory: function() {
+        if (this.robotCreated) { return 'created'}
+        else if (this.isBeCreate) { return 'canBeCreated'}
+        else{ return 'canNotBeCreated' }
       }
-    }
+    },
   }
 </script>
 

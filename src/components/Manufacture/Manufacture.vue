@@ -3,7 +3,6 @@
         <h1 class='rubric'>Производство</h1>
         <div class='conteiner'>
             <div class='conteiner conteiner_column'>
-                {{roboType}}
                 <ManufactureRadio
                     title='Тип биоробота'
                     name='type'
@@ -45,7 +44,12 @@
                     v-on:count="countSouls+=$event"
                 />
             </div>
-            <ManufactureSilhouette :roboType='roboType'/>
+            <ManufactureSilhouette 
+                :stabilizer='roboType.stabilizer' 
+                :type='roboType.type'
+                :isBeCreate='isBeCreate'
+                :robotCreated='robotIsCreated'
+            />
         </div>
     </div>
 </template>
@@ -56,7 +60,6 @@ import { mapState } from 'vuex';
 import ManufactureRadioVue from './ManufactureRadio.vue';
 import ManufactureCheckVue from './ManufactureCheck.vue';
 import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
-import { MALE, FAMALE, FRONTEND, DESIGN } from '../../const.js'
     export default {
         data(){
             return {
@@ -66,15 +69,14 @@ import { MALE, FAMALE, FRONTEND, DESIGN } from '../../const.js'
                     souls:1,
                     coins:10,
                 },
-                isBeCreated: false,
                 countBiomechanisms:0,
                 countProcessors:0,
                 countSouls:0,
                 roboType:{
-                    stabilizer: MALE,
-                    type: FRONTEND,
-                }
-
+                    stabilizer: 'Male',
+                    type: 'FrontEnd',
+                },
+                robotIsCreated: false,
             }
         },
         methods: {
@@ -85,6 +87,7 @@ import { MALE, FAMALE, FRONTEND, DESIGN } from '../../const.js'
                     this.$emit('robotCreated');   
                     this.$store.commit('createRobot',this.costRobot);
                 }
+                this.robotIsCreated = true;
             }
         },
         components: {
@@ -107,11 +110,8 @@ import { MALE, FAMALE, FRONTEND, DESIGN } from '../../const.js'
                 && this.costRobot.souls <= this.stockroom.souls) {
                     return true
                 }
-                else { return false}
+                else { return false }
             },
-        },
-        methods: {
-
         },
     }
 </script>

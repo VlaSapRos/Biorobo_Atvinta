@@ -2,9 +2,6 @@
     <div class='myheader'>
         <img class='pac-man' src='assets/img/pac-man.svg'>
         <button class='headerButton'>Произвести биоробота</button>
-        <h1 class='headerHeading'>Фабрика по производству биороботов</h1>
-        <h3 class='headerSubtitle'>класса «монитор-кресло»</h3>
-        <img class='robots' src='assets/img/robots/robotsHeader.svg'>
     </div>
 </template>
 
@@ -20,34 +17,10 @@
 <style lang="scss">
     .myheader{
         position: relative;
-        height: 320+144.69px ;
+        height: 48px ;
     }
     .pac-man{
         position: absolute;
-    }
-    .headerHeading {
-        position: absolute;
-        top: 168px;
-        left: 130px;
-        font-size: 56px;
-        line-height: 72px;
-        width: 470px;
-        height: 216px;
-    }
-    .headerSubtitle{
-        position: absolute;
-        top: 407px;
-        left: 130px;
-        color: #A3B8CC;
-        font-size: 24px;
-        line-height: 32px;
-        width: 470px;
-        height: 216px;
-    }
-    .robots {
-        position: absolute;
-        left: 650px;
-        top: 144.69px;
     }
     .headerButton {
         position: absolute;

@@ -2,6 +2,7 @@
     <div class='mainConteiner'>
         <Modal v-if='showModal' :modal='modalProps' v-on:close='showModal=false'/>
         <MyHeader/>
+        <InfoBlock/>
         <Wallet v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')"/>
         <Market/>
         <Stock v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')"/>
@@ -11,11 +12,12 @@
 
 <script>
 import MyHeaderVue from './MyHeader.vue';
-import WalletVue from './Wallet.vue';
+import WalletVue from './Wallet/Wallet.vue';
 import MarketVue from './Market/Market.vue';
 import StockVue from './Stock/Stock.vue';
 import ManufactureVue from './Manufacture/Manufacture.vue';
 import ModalVue from './Modal.vue';
+import InfoBlockVue from './InfoBlock.vue';
 
 export default {
     data() {
@@ -45,6 +47,7 @@ export default {
         'Stock': StockVue,
         'Manufacture': ManufactureVue,
         'Modal': ModalVue,
+        'InfoBlock': InfoBlockVue,
     },
 }
 </script>
@@ -54,6 +57,8 @@ export default {
         width: 1016px;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        height: 2204px;
     }
     .pac-man{
         position: absolute;

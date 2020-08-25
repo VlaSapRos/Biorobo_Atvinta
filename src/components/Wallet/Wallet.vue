@@ -1,16 +1,16 @@
 <template lang="html">
-    <div class='wallet'>
-        <h1 class='rubric'>Кошелёк криптоволют</h1>
-            <div class='coinConteiner'>
-                <coin v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)'/>
-            </div>
+    <div class='block block-column'>
+        <h1 class='rubric'>Кошелёк криптовалют</h1>
+        <div class='coinConteiner'>
+            <coin v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)'/>
+        </div>
         <p class='coins'> <b class='coinsBold'>{{ amountCoins }}</b> {{' biorobo ' + coinsDeclination }} </p>
-            <div>    
-                <button @click="addCoins(checked)"
-                >Нацыганить</button>
-                <input type="checkbox" id="checkbox" v-model="checked"> 
-                Цыганить по 5 монет
-            </div>    
+        <div class='walletWrapper'>
+            <button class='buttonToGamble' @click="addCoins(checked)">Нацыганить</button>
+            <input type="checkbox" class='inputCheckbox' id="checkbox" v-model="checked">
+            <label class='labelCheckbox' for='checkbox'/>
+            <label class='labelCheckboxText'for='checkbox'>Цыганить по 5 монет</label>
+        </div>
     </div>
 </template>
 
@@ -78,16 +78,15 @@ import WalletCoinVue from './WalletCoin.vue';
     .coins {
         font-style: normal;
         font-weight: 500;
-        font-size: 32px;
+        font-size: 24px;
         line-height: 40px;
         color: #A3B8CC;
+        margin: 0;
+        margin-bottom: 43px;
     }
     .coinsBold {
         font-style: normal;
         font-weight: 1200;
-        font-size: 32px;
-        line-height: 40px;
-        color: #A3B8CC;
     }
     .check {
         font-style: normal;
@@ -97,9 +96,49 @@ import WalletCoinVue from './WalletCoin.vue';
         /* identical to box height, or 150% */
         color: #FFFFFF;
     }
-    button {
-        width: 111px;
+    .coinConteiner {
+        padding: 0;
+        margin-bottom: 23px;
+        position: relative;
+        height: 20px;
+    }
+    .inputCheckbox {
+        appearance: none;
+        position: absolute;
+        display: none;
+    }
+    .labelCheckboxText {
+        position: absolute;
+        left: 12+24+111+23px;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .labelCheckbox {
+        position: absolute;
+        left: 133px;
+        width: 24px;
         height: 24px;
+        border: 2px solid #A3B8CC;
+        box-sizing: border-box;
+    }
+    .labelCheckbox::after {
+        content: '';
+        background: url('/assets/img/checked.svg') no-repeat;
+        height: 16px;
+        width: 16px;
+        border-radius: 4px;
+        position: absolute;
+        left: 3px;
+        top: 4px;
+        opacity: 0;
+    }
+    .inputCheckbox:checked + .labelCheckbox::after {
+        opacity: 1;
+    }
+    .buttonToGamble {
+        width: 102px;
+        height: 24px;
+        padding: 0;
         border: none;
         font-family: 'Montserrat_regular';
         font-style: normal;
@@ -108,18 +147,14 @@ import WalletCoinVue from './WalletCoin.vue';
         line-height: 24px;
         color: #FF7F22;
         background-color: #222B33;
+        border-bottom: FF7F22;
         border-bottom: 1px solid rgba(255, 127, 34, 0.5);
     }
-    .wallet {
-        display: flex;
-        flex-direction: column;
-        padding-left: 130px;
-    }
-    .coinConteiner {
-        padding: 0;
-        margin: 0;
+    .walletWrapper {
         position: relative;
-        height: 20px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
     }
 </style>
 

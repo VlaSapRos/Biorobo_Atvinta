@@ -1,8 +1,8 @@
 <template lang="html">
     <div class='card'>
         <div class='picture' v-bind:style="{backgroundImage:pic}"></div>
-        <h1 class='title'>{{ title }}</h1>
-        <h2 class='subtitle'>Стоимость: {{ cost }} монет</h2>
+        <h1 class='cardTitle'>{{ title }}</h1>
+        <h2 class='cardSubtitle'>Стоимость: {{ cost }} монет</h2>
         <button 
             :disabled='amountCoins < cost'
             class = 'buttonInstall' 
@@ -42,28 +42,7 @@
         background-position: center;
     }
 
-    .title {
-        font-family: 'Montserrat_regular';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 32px;
-        text-align: center;
-        color: #FFFFFF;
-        height: 32px;
-        margin-bottom: 5px;
-    }
-
-    .subtitle {
-        font-family: 'Montserrat_regular';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: center;
-        color: #A3B8CC;
-        margin-bottom: 24px;
-    }
+    
 
     .buttonInstall {
         width: 200px;

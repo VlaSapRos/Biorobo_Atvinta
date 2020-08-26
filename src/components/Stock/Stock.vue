@@ -1,21 +1,21 @@
 <template lang="html">
-    <div class="stock">
+    <div class="block block-column">
         <h1 class='rubric'>Склад</h1>
         <div class='conteiner'>
         <StockCard 
-            :count='stockroom.biomechanisms'
+            :quantity='stockroom.biomechanisms'
             title='Биомеханизм'
             :cost='cost.biomechanism'
             v-on:sell="$store.commit('sellBiomechanism',cost.biomechanism)"
         />
         <StockCard 
-            :count='stockroom.processors'
+            :quantity='stockroom.processors'
             title='Процессор'
             :cost='cost.processor'
             v-on:sell="$store.commit('sellProcessor',cost.processor)"
         />
         <StockCard 
-            :count='stockroom.souls'
+            :quantity='stockroom.souls'
             title='Душа'
             :cost='cost.soul'
             v-on:sell="$store.commit('sellSoul',cost.soul)"
@@ -49,8 +49,5 @@
 </script>
 
 <style lang="scss" scoped>
-    .stock {
-        padding-left: 130px;
-        padding-right: 130px;
-    }
+
 </style>

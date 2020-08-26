@@ -1,14 +1,16 @@
 <template lang="html">
     <div class='card'>
-        <h1>{{ title }}</h1>
-        <h2>Стоимость: {{ cost }} монет</h2>
-        <h1>{{ count }}</h1>
-        <button 
-            :disabled='count < 1'
-            class = 'button' 
-            v-bind:class="{ active: (count > 0) }"
-            v-on:click="$emit((amountCoins+cost <= 100) ? 'sell' : 'overHundred')"
-        >Продать</button>
+        <h1 class='cardTitle'>{{ title }}</h1>
+        <h2 class='cardSubtitle  cardSubtitle_Stock'>Стоимость: {{ cost }} монет</h2>
+        <h1 class='quantity'>{{ quantity }} шт</h1>
+        <div class='buttonSellBorder'>
+            <button 
+                :disabled='quantity < 1'
+                class = 'buttonSell' 
+                v-bind:class="{ active: (count > 0) }"
+                v-on:click="$emit((amountCoins+cost <= 100) ? 'sell' : 'overHundred')"
+            >Продать</button>
+        </div>
     </div>
 </template>
 
@@ -17,7 +19,7 @@
     export default {
         props: {
             title: '',
-            count: 0,
+            quantity: 0,
             cost: 0,
             thing: '',
         },
@@ -30,23 +32,18 @@
 </script>
 
 <style lang="scss" scoped>
-    h1 {
-        font-family: 'Montserrat_regular';
+    .quantity {
+        width: 236px;
+        height: 24px;
         font-style: normal;
         font-weight: 600;
         font-size: 20px;
-        line-height: 32px;
-        text-align: center;
-        color: #FFFFFF;
-    }
-    h2 {
-        font-family: 'Montserrat_regular';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 16px;
         line-height: 24px;
         text-align: center;
-        color: #A3B8CC;
+        margin-bottom: 24px;
+    }
+    .cardSubtitle_Stock {
+        margin-bottom: 15px;
     }
     .card {
         display: flex;
@@ -54,7 +51,10 @@
         justify-content: center;
         align-items: center;
     }
-    .button {
+    .buttonSellBorder{
+        background: linear-gradient(180deg, #22B3E3 0%,#7CDAF9 50%, #22B3E3 100%);
+    }
+    .buttonSell {
         width: 200px;
         height: 48px;
         border-radius: 60px;
@@ -65,10 +65,11 @@
         line-height: 24px;
         text-align: center;
         color: #7CDAF9;
-        background-color: #222B33;
+        border: 2px solid ;
+        border-color: transparent ;
+        background-color: transparent;
     }
     .active {
-        border: 2px solid #7CDAF9
     }
     .button:disabled{
         border: 2px solid #4C5865;

@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="market">
+    <div class="block block-column">
         <h1 class='rubric'>Рынок комплектующих</h1>
         <div class="conteiner">
         <MarketCard 

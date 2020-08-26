@@ -1,12 +1,11 @@
 <template lang="html">
     <div class='card'>
         <div class='picture' v-bind:style="{backgroundImage:pic}"></div>
-        <!-- <img class='pic' :src="pic"> -->
         <h1 class='title'>{{ title }}</h1>
-        <h2>Стоимость: {{ cost }} монет</h2>
+        <h2 class='subtitle'>Стоимость: {{ cost }} монет</h2>
         <button 
             :disabled='amountCoins < cost'
-            class = 'button' 
+            class = 'buttonInstall' 
             v-bind:class="{ active: (amountCoins >= cost) }"
             v-on:click="$emit('buy')"
         >
@@ -34,6 +33,15 @@
 
 <style lang="scss" scoped>
 
+    .picture {
+        position: absolute;
+        left: -22.5px;
+        top: -72.5px;
+        width: 281px;
+        height: 281px;
+        background-position: center;
+    }
+
     .title {
         font-family: 'Montserrat_regular';
         font-style: normal;
@@ -42,11 +50,11 @@
         line-height: 32px;
         text-align: center;
         color: #FFFFFF;
-        width: 236px;
         height: 32px;
+        margin-bottom: 5px;
     }
 
-    h2 {
+    .subtitle {
         font-family: 'Montserrat_regular';
         font-style: normal;
         font-weight: 500;
@@ -54,9 +62,10 @@
         line-height: 24px;
         text-align: center;
         color: #A3B8CC;
+        margin-bottom: 24px;
     }
 
-    .button {
+    .buttonInstall {
         width: 200px;
         height: 48px;
         background: linear-gradient(180deg, #4C5865 0%,#4C5865 100%);
@@ -95,26 +104,11 @@
         align-items: center;
         flex-direction: column;
         height: 286px;
-        width: 200px;
+        width: 236px;
         padding-top: 153px;
     }
 
-    .pic {
-        top:-60px;
-        left: -40.5px;
-        position:absolute;
-        width: 281px;
-        height: 247px;
-    }
 
-    .picture {
-        position: absolute;
-        left:-40px;
-        top:-79px;
-        width: 286px;
-        height: 286px;
-        background-position: center;
-    }
 
 </style>
 

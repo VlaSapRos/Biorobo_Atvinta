@@ -3,11 +3,12 @@
         <h1 class='cardTitle'>{{ title }}</h1>
         <h2 class='cardSubtitle  cardSubtitle_Stock'>Стоимость: {{ cost }} монет</h2>
         <h1 class='quantity'>{{ quantity }} шт</h1>
-        <div class='buttonSellBorder'>
+        <div class='buttonSellBorder'
+            v-bind:class="{buttonSellBorderDisabled: (quantity < 1) }"
+            >
             <button 
                 :disabled='quantity < 1'
                 class = 'buttonSell' 
-                v-bind:class="{ active: (count > 0) }"
                 v-on:click="$emit((amountCoins+cost <= 100) ? 'sell' : 'overHundred')"
             >Продать</button>
         </div>
@@ -19,7 +20,7 @@
     export default {
         props: {
             title: '',
-            quantity: 0,
+            quantity: '',
             cost: 0,
             thing: '',
         },
@@ -32,6 +33,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     .quantity {
         width: 236px;
         height: 24px;
@@ -42,21 +44,34 @@
         text-align: center;
         margin-bottom: 24px;
     }
+
     .cardSubtitle_Stock {
         margin-bottom: 15px;
     }
+
     .card {
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: center;
     }
+
     .buttonSellBorder{
-        background: linear-gradient(180deg, #22B3E3 0%,#7CDAF9 50%, #22B3E3 100%);
-    }
-    .buttonSell {
-        width: 200px;
+        background: linear-gradient(90deg, #22B3E3 0%,#7CDAF9 50%, #22B3E3 100%);
+        border-radius: 60px;
         height: 48px;
+        width: 200px;
+        padding: 2px;
+    }
+
+    .buttonSellBorderDisabled {
+        background: #4C5865;
+        pointer-events: none;
+    }
+
+    .buttonSell {
+        width: 196px;
+        height: 44px;
         border-radius: 60px;
         font-family: 'Montserrat_regular';
         font-style: normal;
@@ -64,15 +79,24 @@
         font-size: 16px;
         line-height: 24px;
         text-align: center;
-        color: #7CDAF9;
-        border: 2px solid ;
         border-color: transparent ;
-        background-color: transparent;
+        background-color: #212529;
+        color: #7CDAF9;
     }
-    .active {
-    }
-    .button:disabled{
-        border: 2px solid #4C5865;
+
+    .buttonSell:disabled {
         color: #4C5865;
+        pointer-events: none;
     }
+
+    .buttonSell:hover {
+        background: #7CDAF9;
+        color: #212529;
+    }
+
+    .buttonSellBorder:hover {
+        background: #7CDAF9;
+        box-shadow: 12px 12px 10px 1px #7CDAF9;
+    }
+
 </style>

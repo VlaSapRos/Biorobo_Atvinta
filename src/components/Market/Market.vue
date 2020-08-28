@@ -3,21 +3,21 @@
         <h1 class='rubric'>Рынок комплектующих</h1>
         <div class="conteiner">
         <MarketCard 
-            pic="url('/assets/img/biomechanism/biomechanism_market.svg')"
+            pic='/assets/img/biomechanism/biomechanism_market.svg'
             title='Биомеханизм'
             buttonValue = 'Установить'
             :cost = 'cost.biomechanism'
             v-on:buy="$store.commit('buyBiomechanism',7)"
         />
         <MarketCard 
-            pic="url('/assets/img/processor/processor_market.svg')"
+            pic='/assets/img/processor/processor_market.svg'
             title='Процессор'
             buttonValue = 'Установить'
             :cost = 'cost.processor'
             v-on:buy="$store.commit('buyProcessor',5)"
         />
         <MarketCard 
-            pic="url('/assets/img/soul/soul_market.svg')"
+            pic='/assets/img/soul/soul_market.svg'
             title='Душа'
             buttonValue = 'Установить'
             :cost = 'cost.soul'

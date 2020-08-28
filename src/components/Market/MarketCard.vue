@@ -1,12 +1,13 @@
 <template lang="html">
     <div class='card'>
-        <div class='picture' v-bind:style="{backgroundImage:pic}"></div>
+        <div class='picture'>
+            <img class='img_Market' :src='pic'/>
+        </div>
         <h1 class='cardTitle'>{{ title }}</h1>
         <h2 class='cardSubtitle'>Стоимость: {{ cost }} монет</h2>
         <button 
             :disabled='amountCoins < cost'
             class = 'buttonInstall' 
-            v-bind:class="{ active: (amountCoins >= cost) }"
             v-on:click="$emit('buy')"
         >
         Установить</button>
@@ -34,21 +35,26 @@
 <style lang="scss" scoped>
 
     .picture {
-        position: absolute;
-        left: -22.5px;
-        top: -72.5px;
-        width: 281px;
-        height: 281px;
+        width: 236px;
+        height: 128px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-position: center;
+        background-repeat: no-repeat;
+        margin-bottom: 25px;
+        filter: drop-shadow(0px 0px 35px rgba(255, 127, 34, 0.8));
     }
 
-    
+    .img_Market {
+        filter: drop-shadow(0px 0px 75px rgba(255, 127, 34, 0.5))
+    }
 
     .buttonInstall {
         width: 200px;
         height: 48px;
-        background: linear-gradient(180deg, #4C5865 0%,#4C5865 100%);
         border-radius: 60px;
+        background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
         font-family: 'Montserrat_regular';
         font-style: normal;
         font-weight: 600;
@@ -59,20 +65,17 @@
         border: none;
     }
 
-    .active {
-        background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
+    .buttonInstall:hover {
+        background: #FF5722;
     }
 
-    .button:hover {
-        background: linear-gradient(180deg, #FF5722 0%, #FF5722 100%);
+    .buttonInstall:active {
+        background: #FF7F22;
     }
 
-    .button:active {
-        background: linear-gradient(180deg, #FF7F22 0%, #FF7F22 100%);
-    }
-
-    .button:disabled {
+    .buttonInstall:disabled {
         color: #7D90A6;
+        background: #4C5865;
     }
 
     .card {
@@ -84,7 +87,6 @@
         flex-direction: column;
         height: 286px;
         width: 236px;
-        padding-top: 153px;
     }
 
 

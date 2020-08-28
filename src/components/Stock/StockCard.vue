@@ -92,11 +92,21 @@
     .buttonSell:hover {
         background: #7CDAF9;
         color: #212529;
+        box-shadow: 0px 16px 20px 3px rgba(34, 179, 227, 0.15), 0px 0px 42px 0px rgba(34, 179, 227, 0.1);
+    }
+    
+    .buttonSell:active {
+        box-shadow: 0px 0px 42px 0px rgba(34, 179, 227, 0.1);
+        background-color: #212529;
+        color: #7CDAF9;
     }
 
     .buttonSellBorder:hover {
         background: #7CDAF9;
-        box-shadow: 12px 12px 10px 1px #7CDAF9;
+    }    
+    
+    .buttonSellBorder:active {
+        background: #22B3E3;
     }
 
 </style>

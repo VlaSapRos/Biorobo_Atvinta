@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class='card'>
+    <div class='cardMarket'>
         <div class='picture'>
             <img class='img_Market' :src='pic'/>
         </div>
@@ -78,7 +78,7 @@
         background: #4C5865;
     }
 
-    .card {
+    .cardMarket {
         position: relative;
         display: flex;
         flex-flow: column;

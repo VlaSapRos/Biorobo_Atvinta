@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="block block-column">
+    <div class="block">
         <h1 class='rubric'>Склад</h1>
         <div class='conteiner'>
         <StockCard 

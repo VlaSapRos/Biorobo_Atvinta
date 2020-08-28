@@ -1,7 +1,7 @@
 <template lang="html">
     <div class='radio'>
-        <h1>{{ title }}</h1>
-        <div class='conteiner radioConteinerSize'>
+        <h1 class='radioTitle'>{{ title }}</h1>
+        <div class='conteiner radioSize'>
             <div class='radioConteiner '>
                 <div class='radioWrapper'>
                     <input checked 
@@ -52,14 +52,19 @@
 </script>
 
 <style lang="scss" scoped>
-    h1 {
-        font-family: 'Montserrat_regular';
+    .radio {
+        margin-bottom: 23px;
+    }
+    .radioTitle {
+        width: 134px;
+        height: 20px;
         font-style: normal;
-        font-weight: 600;
-        font-size: 20px;
-        line-height: 32px;
-        text-align: center;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
         color: #FFFFFF;
+        margin-bottom: 16px;
+        margin-top: 5px;
     }
     .radioInput {
         appearance: none;
@@ -74,8 +79,7 @@
     }
     .radioConteiner {
         display: flex;
-        width: 32+8+63px;
-        padding: 0;
+        width: 103px;
         font-style: normal;
         font-weight: normal;
         font-size: 12px;
@@ -88,6 +92,7 @@
         width: 24px;
         border: 2px solid #A3B8CC;
         border-radius: 50%;
+        margin-right: 4px;
     }
     .radioLabel::after {
         content: '';
@@ -104,11 +109,13 @@
     .radioText {
         display: flex;
         align-items: center;
+        justify-content: start;
         width: 63px;
         height: 32px;
     }
-    .radioConteinerSize {
+    .radioSize {
         width: 237px;
+        padding-left: 2px;
     }
     .radioInput:checked + .radioLabel::after {
         opacity: 1;

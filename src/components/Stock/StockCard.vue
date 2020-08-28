@@ -54,7 +54,9 @@
         flex-flow: column;
         justify-content: center;
         align-items: center;
+        width: 236px;
     }
+
 
     .buttonSellBorder{
         background: linear-gradient(90deg, #22B3E3 0%,#7CDAF9 50%, #22B3E3 100%);

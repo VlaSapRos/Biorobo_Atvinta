@@ -95,7 +95,9 @@
 <style lang="scss" scoped>
     .checkboxs {
         display: flex;
-        justify-content: start;
-        width: 232px;
+        align-items: center;
+        justify-content: space-between;
+        width: 222px;
+        margin-bottom: 16px;
     }
 </style>

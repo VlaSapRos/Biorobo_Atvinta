@@ -1,7 +1,7 @@
 <template lang="html">
-    <div class='cardMarket'>
+    <div class='card'>
         <div class='picture'>
-            <img class='img_Market' :src='pic'/>
+            <img class='img' :src='pic'/>
         </div>
         <h1 class='cardTitle'>{{ title }}</h1>
         <h2 class='cardSubtitle'>Стоимость: {{ cost }} монет</h2>
@@ -46,7 +46,7 @@
         filter: drop-shadow(0px 0px 35px rgba(255, 127, 34, 0.8));
     }
 
-    .img_Market {
+    .img {
         filter: drop-shadow(0px 0px 75px rgba(255, 127, 34, 0.5))
     }
 
@@ -78,7 +78,7 @@
         background: #4C5865;
     }
 
-    .cardMarket {
+    .card {
         position: relative;
         display: flex;
         flex-flow: column;

@@ -46,10 +46,5 @@
 </script>
 
 <style lang="scss" scoped>
-    .market {
-        padding-left: 130px;
-        padding-right: 130px;
-        width: 1016px;
-    }
-    
+
 </style>

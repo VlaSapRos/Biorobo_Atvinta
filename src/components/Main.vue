@@ -1,12 +1,12 @@
 <template lang='html'>
     <div class='mainConteiner'>
-        <Modal v-if='showModal' :modal='modalProps' v-on:close='showModal=false'/>
+        <Modal v-if='showModal' :modal='modalProps' v-on:close='showModal=false; robotIsCreated=false'/>
         <MyHeader/>
         <InfoBlock/>
         <Wallet v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')"/>
         <Market/>
         <Stock v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')"/>
-        <Manufacture v-on:robotCreated="modalTrue('Биоробот произведён', 'Поздравляем!', 'Вы произвели биоробота', '')"/>
+        <Manufacture :robotIsCreated='robotIsCreated' v-on:robotCreated="modalTrue('Биоробот произведён', 'Поздравляем!', 'Вы произвели биоробота', '')"/>
     </div>
 </template>
 
@@ -28,7 +28,8 @@ export default {
                 subtitleOne:'',
                 subtitleTwo: '',
                 pic:'',
-            }
+            },
+            robotIsCreated: false,
         }
     },
     methods:{
@@ -59,8 +60,5 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         height: 2204px;
-    }
-    .pac-man{
-        position: absolute;
     }
 </style>

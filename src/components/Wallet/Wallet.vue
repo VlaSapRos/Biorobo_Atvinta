@@ -93,7 +93,6 @@ import WalletCoinVue from './WalletCoin.vue';
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
-        /* identical to box height, or 150% */
         color: #FFFFFF;
     }
     .coinConteiner {
@@ -109,7 +108,7 @@ import WalletCoinVue from './WalletCoin.vue';
     }
     .labelCheckboxText {
         position: absolute;
-        left: 12+24+111+23px;
+        left: 170px;
         font-weight: 500;
         font-size: 16px;
     }

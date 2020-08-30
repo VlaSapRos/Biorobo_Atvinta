@@ -1,5 +1,5 @@
-const path = require('path'); // Для корректной работы (погуглить)
-const fs = require("fs"); // Не понятно
+const path = require('path');
+const fs = require("fs");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,9 +11,6 @@ const PATHS = {
   dist: path.join(__dirname, '../dist'),
   assets: 'assets/'
 }
-
-const PAGES_DIR = `${PATHS.src}/pages/`
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
 
 module.exports = {
   // BASE config
@@ -106,10 +103,6 @@ module.exports = {
           options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`}}
         }
       ]
-    },
-    {
-      test: /\.pug$/,
-      loader: 'pug-loader'
     },],
   },
   resolve: {
@@ -134,9 +127,5 @@ module.exports = {
       { from: `${PATHS.src}/static`, to: '' },
       ]
     }),
-    ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`, 
-      filename: `./pages/${page.replace(/\.pug/,'.html')}`
-    }))
   ],
 }

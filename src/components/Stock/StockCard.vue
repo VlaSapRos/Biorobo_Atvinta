@@ -1,7 +1,7 @@
 <template lang="html">
     <div class='card'>
         <h1 class='cardTitle'>{{ title }}</h1>
-        <h2 class='cardSubtitle  cardSubtitle_Stock'>Стоимость: {{ cost }} монет</h2>
+        <h2 class='cardSubtitle  cardSubtitle'>Стоимость: {{ cost }} монет</h2>
         <h1 class='quantity'>{{ quantity }} шт</h1>
         <div class='buttonSellBorder'
             v-bind:class="{buttonSellBorderDisabled: (quantity < 1) }"
@@ -45,7 +45,7 @@
         margin-bottom: 24px;
     }
 
-    .cardSubtitle_Stock {
+    .cardSubtitle {
         margin-bottom: 15px;
     }
 

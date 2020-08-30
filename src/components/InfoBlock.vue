@@ -15,7 +15,7 @@
     };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .infoBlock{
         position: relative;
         height: 320px;

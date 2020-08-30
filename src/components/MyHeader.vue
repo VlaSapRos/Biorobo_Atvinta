@@ -1,7 +1,7 @@
 <template lang="html">
     <div class='myheader'>
         <img class='pac-man' src='assets/img/pac-man.svg'>
-        <button class='headerButton'>Произвести биоробота</button>
+        <button onClick='window.location.reload()' class='headerButton'>Произвести биоробота</button>
     </div>
 </template>
 

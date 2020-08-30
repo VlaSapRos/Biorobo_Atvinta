@@ -32,16 +32,5 @@
 </script>
 
 <style lang="scss" scoped>
-  h1 {
-    font-family: 'Montserrat_regular';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 32px;
-    text-align: center;
-    color: #FFFFFF;
-  }
-  .silhouette {
-    
-  }
+
 </style>

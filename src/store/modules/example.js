@@ -1,6 +1,6 @@
 export default {
     state: {
-        message: 'Hello, Vue.',
+
     },
     mutations: {
 
@@ -9,9 +9,7 @@ export default {
 
     },
     getters: {
-        getMessage (state) {
-            return state.message
-        }
+
     }
 
 }

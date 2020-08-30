@@ -12,11 +12,6 @@ export default new Vuex.Store({
             souls: 0,
             robots: 0,
         },
-        errorText: {
-            part1:'',
-            part2:'',
-            part3:'',
-        },
     },
     mutations: {
         addCoins (state, count) {

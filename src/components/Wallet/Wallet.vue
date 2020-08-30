@@ -1,17 +1,14 @@
-<template lang="html">
-    <div class='block block-column'>
-        <h1 class='rubric'>Кошелёк криптовалют</h1>
-        <div class='coinConteiner'>
-            <coin v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)'/>
-        </div>
-        <p class='coins'> <b class='coinsBold'>{{ amountCoins }}</b> {{' biorobo ' + coinsDeclination }} </p>
-        <div class='walletWrapper'>
-            <button class='buttonToGamble' @click="addCoins(checked)">Нацыганить</button>
-            <input type="checkbox" class='inputCheckbox' id="checkbox" v-model="checked">
-            <label class='labelCheckbox' for='checkbox'/>
-            <label class='labelCheckboxText'for='checkbox'>Цыганить по 5 монет</label>
-        </div>
-    </div>
+<template lang="pug">
+  div(class='block block-column')
+    h1(class='rubric'>Кошелёк криптовалют)
+    div(class='coinConteiner')
+      coin(v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)')
+    p(class='coins') <b class='coinsBold'>{{ amountCoins }}</b> {{' biorobo ' + coinsDeclination }}
+    div(class='walletWrapper')
+      button(class='buttonToGamble' @click="addCoins(checked)") Нацыганить
+      input(type="checkbox" class='inputCheckbox' id="checkbox" v-model="checked")
+      label(class='labelCheckbox' for='checkbox')
+      label(class='labelCheckboxText' for='checkbox') Цыганить по 5 монет
 </template>
 
 <script>

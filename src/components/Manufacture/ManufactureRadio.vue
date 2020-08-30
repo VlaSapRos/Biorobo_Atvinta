@@ -1,54 +1,33 @@
-<template lang="html">
-    <div class='radio'>
-        <h1 class='radioTitle'>{{ title }}</h1>
-        <div class='conteiner radioSize'>
-            <div class='radioConteiner '>
-                <div class='radioWrapper'>
-                    <input checked 
-                        class='radioInput'
-                        type='radio' 
-                        :id="name+'_1'" 
-                        :name='name'
-                        v-model='picked'
-                        :value='value1'
-                        v-on:change="$emit('roboTypeChange',picked)"
-                    > 
-                    <label class='radioLabel' :for="name+'_1'" />
-                </div>
-                <p class=radioText>{{ value1 }}</p>
-            </div>
-            <div class='radioConteiner '> 
-                <div class='radioWrapper'>
-                    <input class='radioInput' 
-                        type='radio' 
-                        :id="name+'_2'" 
-                        :name='name'
-                        v-model='picked'
-                        :value='value2'
-                        v-on:change="$emit('roboTypeChange',picked)"
-                    > 
-                    <label class='radioLabel' :for="name+'_2'"/>
-                </div>
-                <p class=radioText>{{ value2 }}</p> 
-            </div>
-        </div>
-    </div>
+<template lang="pug">
+  div(class='radio')
+    h1(class='radioTitle') {{ title }}
+    div(class='conteiner radioSize')
+      div(class='radioConteiner')
+        div(class='radioWrapper')
+          input(checked class='radioInput' type='radio' :id="name+'_1'" :name='name' v-model='picked' :value='value1' v-on:change="$emit('roboTypeChange',picked)")
+          label(class='radioLabel' :for="name+'_1'")
+        p(class='radioText') {{ value1 }}
+      div(class='radioConteiner')
+        div(class='radioWrapper')
+          input(class='radioInput' type='radio' :id="name+'_2'" :name='name' v-model='picked' :value='value2' v-on:change="$emit('roboTypeChange',picked)")
+          label(class='radioLabel' :for="name+'_2'")
+        p(class='radioText') {{ value2 }}
 </template>
 
 <script>
-    export default {
-        data() {
-            return {
-                picked: this.value1
-            }
-        },
-        props: {
-            title: '',
-            name: '',
-            value1: '',
-            value2: '',
-        },
-    }
+  export default {
+    data() {
+      return {
+        picked: this.value1
+      }
+    },
+    props: {
+      title: '',
+      name: '',
+      value1: '',
+      value2: '',
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -73,7 +52,6 @@
     .radioWrapper {
         position: relative;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
     }

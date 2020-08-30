@@ -1,35 +1,28 @@
-<template lang="html">
-    <div class='card'>
-        <div class='picture'>
-            <img class='img' :src='pic'/>
-        </div>
-        <h1 class='cardTitle'>{{ title }}</h1>
-        <h2 class='cardSubtitle'>Стоимость: {{ cost }} монет</h2>
-        <button 
-            :disabled='amountCoins < cost'
-            class = 'buttonInstall' 
-            v-on:click="$emit('buy')"
-        >
-        Установить</button>
-    </div>
+<template lang="pug">
+  div(class='card')
+    div(class='picture')
+      img(class='img' :src='pic')
+    h1(class='cardTitle') {{ title }}
+    h2(class='cardSubtitle') Стоимость: {{ cost }} монет
+    button(:disabled='amountCoins < cost' class = 'buttonInstall' v-on:click="$emit('buy')") Установить
 </template>
 
 <script>
-    import { mapState } from 'vuex';
+  import { mapState } from 'vuex';
 
-    export default {
-        props: {
-            pic: null,
-            title: '',
-            subtitle: '',
-            cost: 0,
-        },
-        computed: {
-            ...mapState([
-                'amountCoins',
-            ]),
-        },
-    }
+  export default {
+    props: {
+      pic: null,
+      title: '',
+      subtitle: '',
+      cost: 0,
+    },
+    computed: {
+      ...mapState([
+        'amountCoins',
+      ]),
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
@@ -88,8 +81,6 @@
         height: 286px;
         width: 236px;
     }
-
-
 
 </style>
 

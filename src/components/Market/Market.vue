@@ -1,30 +1,10 @@
-<template lang="html">
-    <div class="block">
-        <h1 class='rubric'>Рынок комплектующих</h1>
-        <div class="conteiner">
-        <MarketCard 
-            pic='/assets/img/biomechanism/biomechanism_market.svg'
-            title='Биомеханизм'
-            buttonValue = 'Установить'
-            :cost = 'cost.biomechanism'
-            v-on:buy="$store.commit('buyBiomechanism',7)"
-        />
-        <MarketCard 
-            pic='/assets/img/processor/processor_market.svg'
-            title='Процессор'
-            buttonValue = 'Установить'
-            :cost = 'cost.processor'
-            v-on:buy="$store.commit('buyProcessor',5)"
-        />
-        <MarketCard 
-            pic='/assets/img/soul/soul_market.svg'
-            title='Душа'
-            buttonValue = 'Установить'
-            :cost = 'cost.soul'
-            v-on:buy="$store.commit('buySoul',25)"
-        />
-        </div>
-    </div>
+<template lang="pug">
+  div(class="block")
+    h1(class='rubric') Рынок комплектующих
+    div(class="conteiner")
+      MarketCard(pic='/assets/img/biomechanism/biomechanism_market.svg' title='Биомеханизм' buttonValue = 'Установить' :cost = 'cost.biomechanism' v-on:buy="$store.commit('buyBiomechanism',7)")
+      MarketCard(pic='/assets/img/processor/processor_market.svg' title='Процессор' buttonValue = 'Установить' :cost = 'cost.processor' v-on:buy="$store.commit('buyProcessor',5)")
+      MarketCard(pic='/assets/img/soul/soul_market.svg' title='Душа' buttonValue = 'Установить' :cost = 'cost.soul' v-on:buy="$store.commit('buySoul',25)")
 </template>
 
 <script>

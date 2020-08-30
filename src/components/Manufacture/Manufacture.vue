@@ -1,62 +1,18 @@
-<template lang="html">
-    <div class="block">
-        <h1 class='rubric'>Производство</h1>
-        <div class='conteiner conteiner_Manufacture'>
-            <div class='conteiner_column conteiner_columnManufacture'>
-                <ManufactureRadio
-                    title='Тип биоробота:'
-                    name='type'
-                    value1 = 'FrontEnd'
-                    value2 = 'Design'
-                    v-on:roboTypeChange='roboType.type=$event'
-                />
-                <ManufactureRadio
-                    title='Стабилизатор:'
-                    name='gender'
-                    value1 = 'Male'
-                    value2 = 'Female'
-                    v-on:roboTypeChange='roboType.stabilizer=$event'
-                />
-                <button 
-                    class='buttonCreate'
-                    v-bind:class="{active: isBeCreate}"
-                    :disabled='!isBeCreate'
-                    @click="createRobot()"
-                    >Произвести за 10 монет</button>
-            </div>
-            <div class='conteiner_column conteiner_columnManufacture' style='padding-top:9px'>
-                <ManufactureCheck 
-                    count='4'
-                    isBiomechanism='true'
-                    :stock="stockroom.biomechanisms"
-                    v-on:count="countBiomechanisms+=$event"
-                />
-                <ManufactureCheck 
-                    count='4'
-                    isProcessor='true'
-                    :stock="stockroom.processors"
-                    v-on:count="countProcessors+=$event"
-                />
-                <ManufactureCheck 
-                    count='1'
-                    isSoul='true'
-                    :stock="stockroom.souls"
-                    v-on:count="countSouls+=$event"
-                />
-            <div class='notEnough'>
-                {{notEnough}}
-            </div>
-            </div>
-            <div class='conteiner_column conteiner_columnManufacture'>
-            <ManufactureSilhouette 
-                :stabilizer='roboType.stabilizer' 
-                :type='roboType.type'
-                :isBeCreate='isBeCreate'
-                :robotCreated='robotIsCreated'
-            />
-            </div>
-        </div>
-    </div>
+<template lang="pug">
+  div(class="block")
+    h1(class='rubric') Производство
+    div(class='conteiner conteiner_Manufacture')
+      div(class='conteiner_column conteiner_columnManufacture')
+        ManufactureRadio(title='Тип биоробота:' name='type' value1 = 'FrontEnd' value2 = 'Design' v-on:roboTypeChange='roboType.type=$event')
+        ManufactureRadio(title='Стабилизатор:' name='gender' value1 = 'Male' value2 = 'Female' v-on:roboTypeChange='roboType.stabilizer=$event')
+        button(class='buttonCreate' v-bind:class="{active: isBeCreate}" :disabled='!isBeCreate' @click="createRobot()") Произвести за 10 монет
+      div(class='conteiner_column conteiner_columnManufacture' style='padding-top:9px')
+        ManufactureCheck(count='4' isBiomechanism='true' :stock="stockroom.biomechanisms" v-on:count="countBiomechanisms+=$event")
+        ManufactureCheck(count='4' isProcessor='true' :stock="stockroom.processors" v-on:count="countProcessors+=$event")
+        ManufactureCheck(count='1' isSoul='true' :stock="stockroom.souls" v-on:count="countSouls+=$event")
+        div(class='notEnough') {{notEnough}}
+      div(class='conteiner_column conteiner_columnManufacture')
+        ManufactureSilhouette(:stabilizer='roboType.stabilizer' :type='roboType.type' :isBeCreate='isBeCreate' :robotCreated='robotIsCreated')
 </template>
 
 <script>

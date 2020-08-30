@@ -1,7 +1,8 @@
-@import "utils/libs";
 @import "utils/vars";
-@import "utils/mixins";
 @import "utils/fonts";
+@import "style/svg.scss";
+@import "style/card.scss";
+@import "style/chekbox.scss";
 
 //*******************************
 body {
@@ -10,9 +11,7 @@ body {
   margin: 0;
   padding: 0;
 }
-//*******************************
 
-//*******************************
 .rubric {
   font-style: normal;
   font-weight: 600;
@@ -22,9 +21,7 @@ body {
   height: 60px;
   margin-bottom: 60px;
 }
-//*******************************
 
-//*******************************
 .conteiner {
   display: flex;
   justify-content: space-between;
@@ -38,9 +35,7 @@ body {
   align-content: center;
   align-items: center;
 }
-//*******************************
 
-//*******************************
 .background {
   position: relative;
   display: flex;
@@ -52,69 +47,13 @@ body {
   box-sizing: border-box;
   background: radial-gradient(82.33% 70.44% at 50% 0%, #26394D 0%, #212529 100%);;
 }
-//*******************************
+
 .block{
   position: relative;
   padding-left: 130px;
   display: flex;
   width: 884px;
   flex-direction: column;
-}
-//*******************************
-
-//*******************************
-.fillGray {
-  fill:#4C5865;
-}
-
-.fillWhite {
-  fill:white;
-}
-
-.fillOrange {
-  fill:#FF7F22;
-}
-//*******************************
-// CARD
-//*******************************
-.cardTitle {
-  font-family: 'Montserrat_regular';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 32px;
-  text-align: center;
-  color: #FFFFFF;
-  height: 32px;
-  margin-bottom: 5px;
-}
-
-.cardSubtitle {
-  font-family: 'Montserrat_regular';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  color: #A3B8CC;
-  margin-bottom: 24px;
-}
-//*******************************
-
-html {
-  line-height: $mainLineHeight;
-	font-size: $mainFontSize;
-	color: $mainFontColor;
-  height: 100%;
-  @media screen and (max-width: $desktopWidth) {
-		font-size: 16px;
-  }
-  @media screen and (max-width: $tableWidth) {
-		font-size: 15px;
-  }
-  @media screen and (max-width: $phoneWidth) {
-		font-size: 14px;
-  }
 }
 
 *, *:before, *:after { box-sizing: border-box; }
@@ -130,61 +69,8 @@ ul, li, p {
   padding: 0;
 }
 
-section, .section {
-  position: relative;
-  padding: 40px 0;
-  @media screen and (max-width: $desktopWidth) {
-    padding: 36px 0;
-  }
-  @media screen and (max-width: $desktopWidth) {
-    padding: 28px 0;
-  }
-  @media screen and (max-width: $desktopWidth) {
-    padding: 20px 0;
-  }
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  margin: 0 auto;
-}
-
-.fontsList{
-  font-size: 16px;
-  margin-left: 2em;
-  list-style-type: square;
-}
-
-.fontsList_fifth  {
-  font-family: "VLADOVSKIY";
-}
-
 button, 
 button:active, 
 button:focus {
   outline: 0 !important;
-}
-// **********
-//  CheckBox
-// **********
-.checkbox {
-  background-color: #333940;
-  border: 2px solid #333940;
-  border-radius: 4px;
-  width: 48px;
-  height: 48px;
-}
-.checkbox:disabled {
-  background-color: #333940;
-  border: 2px solid #333940;
-}
-.active {
-  border: 2px solid #FF7F22;
-  background-color: #222B33;
-}
-.svgImage {
-  filter: drop-shadow(0px 0px 90px #FF7F22);
-  
 }

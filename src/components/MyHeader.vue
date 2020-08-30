@@ -1,8 +1,7 @@
-<template lang="html">
-    <div class='myheader'>
-        <img class='pac-man' src='assets/img/pac-man.svg'>
-        <button onClick='window.location.reload()' class='headerButton'>Произвести биоробота</button>
-    </div>
+<template lang="pug">
+  div(class='myheader')
+    img(class='pac-man' src='assets/img/pac-man.svg')
+    button(onClick='window.location.reload()' class='headerButton') Произвести биоробота
 </template>
 
 <script>

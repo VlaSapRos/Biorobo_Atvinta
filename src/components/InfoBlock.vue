@@ -1,9 +1,8 @@
-<template lang="html">
-    <div class='infoBlock block'>
-        <h1 class='headerHeading'>Фабрика по производству биороботов</h1>
-        <h3 class='headerSubtitle'>класса «монитор-кресло»</h3>
-        <img class='robots' src='assets/img/robots/robotsHeader.svg'>
-    </div>
+<template lang="pug">
+  div(class='infoBlock block')
+    h1(class='headerHeading') Фабрика по производству биороботов
+    h3(class='headerSubtitle') класса «монитор-кресло»
+    img(class='robots' src='assets/img/robots/robotsHeader.svg')
 </template>
 
 <script>

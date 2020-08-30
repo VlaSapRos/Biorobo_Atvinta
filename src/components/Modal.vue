@@ -1,13 +1,12 @@
-<template>
-    <div class="modalMask">
-        <div class="modalConteiner">
-            <img class='pic' :src='modal.pic'/>
-            <button class='modalClose' v-on:click="$emit('close')"><img src='assets/img/cross.svg'></button>
-            <h1 class="modalTitle">{{modal.title}}</h1>
-            <h2 class="modalSubtitle">{{modal.subtitleOne}}</h2>
-            <h2 class="modalSubtitle modalSubtitleTwo">{{modal.subtitleTwo}}</h2>
-        </div>
-    </div>      
+<template lang="pug">
+  div(class="modalMask")
+    div(class="modalConteiner")
+      img(class='pic' :src='modal.pic')
+      button(class='modalClose' v-on:click="$emit('close')")
+        img(src='assets/img/cross.svg')
+      h1(class="modalTitle") {{modal.title}}
+      h2(class="modalSubtitle") {{modal.subtitleOne}}
+      h2(class="modalSubtitle modalSubtitleTwo") {{modal.subtitleTwo}}
 </template>
 
 <script>

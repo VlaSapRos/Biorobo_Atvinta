@@ -103,7 +103,12 @@ module.exports = {
           options: { sourceMap: true, config: { path: `${PATHS.config}/postcss.config.js`}}
         }
       ]
-    },],
+    },
+    {
+      test: /\.pug$/,
+      loader: 'pug-plain-loader'
+    },
+  ],
   },
   resolve: {
     alias: {

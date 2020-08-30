@@ -1,7 +1,6 @@
-<template lang="html">
-    <div class='silhouette'>
-      <img :src="'assets/img/robots/' + derictory + '/'+ picture + '.svg'">
-    </div>
+<template lang="pug">
+  div(class='silhouette')
+    img(:src="'assets/img/robots/' + derictory + '/'+ picture + '.svg'")
 </template>
 
 <script>

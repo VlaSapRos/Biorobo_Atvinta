@@ -1,7 +1,7 @@
 <template lang="pug">
   div(class='myheader')
     img(class='pac-man' src='assets/img/pac-man.svg')
-    button(onClick='window.location.reload()' class='headerButton') Произвести биоробота
+    a( class='headerButton' href='#manufacture') Произвести биоробота
 </template>
 
 <script>
@@ -15,16 +15,14 @@
 
 <style lang="scss">
     .myheader{
-        position: relative;
+        display: flex;
+        justify-content: space-between;
         height: 48px ;
     }
     .pac-man{
-        position: absolute;
     }
     .headerButton {
-        position: absolute;
-        right: 0px;
-        top: 0px;
+        display: flex;
         width: 236px;
         height: 48px;
         border-radius: 60px;
@@ -36,6 +34,8 @@
         color: #ffffff;
         border:2px solid #FF7F22; 
         background-color: transparent;
+        align-items: center;
+        justify-content: center;
     }
 
 </style>

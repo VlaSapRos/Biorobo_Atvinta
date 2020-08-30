@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(class="block")
+  div(class="block" id='manufacture')
     h1(class='rubric') Производство
     div(class='conteiner conteiner_Manufacture')
       div(class='conteiner_column conteiner_columnManufacture')

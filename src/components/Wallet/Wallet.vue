@@ -1,6 +1,6 @@
 <template lang="pug">
   div(class='block block-column')
-    h1(class='rubric'>Кошелёк криптовалют)
+    h1(class='rubric') Кошелёк криптовалют
     div(class='coinConteiner')
       coin(v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)')
     p(class='coins') <b class='coinsBold'>{{ amountCoins }}</b> {{' biorobo ' + coinsDeclination }}

@@ -12,32 +12,33 @@ export default new Vuex.Store({
             souls: 0,
             robots: 0,
         },
+        robotIsCreated: false,
     },
     mutations: {
         addCoins (state, count) {
             state.amountCoins += count;
         },
-        buyBiomechanism(state,cost) {
+        buyBiomechanism (state,cost) {
             state.stockroom.biomechanisms++;
             state.amountCoins -= cost;
         },
-        buyProcessor(state,cost) {
+        buyProcessor (state,cost) {
             state.stockroom.processors++;
             state.amountCoins -= cost;
         },
-        buySoul(state,cost) {
+        buySoul (state,cost) {
             state.stockroom.souls++;
             state.amountCoins -= cost;
         },
-        sellBiomechanism(state,cost) {
+        sellBiomechanism (state,cost) {
             state.stockroom.biomechanisms--;
             state.amountCoins += cost;
         },
-        sellProcessor(state,cost){
+        sellProcessor (state,cost) {
             state.stockroom.processors--;
             state.amountCoins += cost;
         },
-        sellSoul(state,cost) {
+        sellSoul (state,cost) {
             state.stockroom.souls--;
             state.amountCoins += cost;
         },
@@ -47,6 +48,10 @@ export default new Vuex.Store({
             state.stockroom.biomechanisms -= costRobots.biomechanisms;
             state.stockroom.processors -= costRobots.processors;
             state.stockroom.souls -= costRobots.souls;
+            state.robotIsCreated = true;
+        },
+        closeModal (state) {
+            state.robotIsCreated = false;
         }
     },
     actions: {

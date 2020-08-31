@@ -1,31 +1,33 @@
-<template lang="html">
-    <div class="block">
-        <h1 class='rubric'>Склад</h1>
-        <div class='conteiner'>
-        <StockCard 
+<template lang="pug">
+  div(class="block")
+    h1(class='rubric') Склад
+    div(class='conteiner')
+      StockCard(
             :quantity='stockroom.biomechanisms'
             title='Биомеханизм'
             :cost='cost.biomechanism'
             v-on:sell="$store.commit('sellBiomechanism',cost.biomechanism)"
-        />
-        <StockCard 
+            v-on:overHundred="$emit('overHundred')"
+      )
+      StockCard(
             :quantity='stockroom.processors'
             title='Процессор'
             :cost='cost.processor'
             v-on:sell="$store.commit('sellProcessor',cost.processor)"
-        />
-        <StockCard 
+            v-on:overHundred="$emit('overHundred')"
+      )
+      StockCard(
             :quantity='stockroom.souls'
             title='Душа'
             :cost='cost.soul'
             v-on:sell="$store.commit('sellSoul',cost.soul)"
-        />
-        </div>
-    </div>
+            v-on:overHundred="$emit('overHundred')"
+      )
 </template>
 
 <script>
     import { mapState } from 'vuex';
+
     import StockCardVue from "./StockCard.vue";
     export default {
         data() {
@@ -40,6 +42,7 @@
         computed: {
             ...mapState([
                 'stockroom',
+                'amountCoins',
             ]),
         },
         components: {

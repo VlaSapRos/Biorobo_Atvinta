@@ -1,8 +1,10 @@
 <template>
-    <button class="checkbox" 
-        v-bind:class='{active:fillOrange, }' 
+    <button 
+        class="checkbox"
+        v-bind:class='{ active:( fillOrange ) }'
         v-on:click="$emit('count',(fillOrange)?-1:1)"
-        @click="fillOrange=!fillOrange" 
+        v-on:disabled="$emit('count',-1);"
+        @click="fillOrange=!fillOrange"
         :disabled='+stockroom.processors<+number'
     >
         <svg class='fillGray' v-bind:class='{fillWhite:+stockroom.processors>=+number, fillOrange:(fillOrange && +stockroom.processors>=+number), }' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,6 +33,12 @@ export default {
     },
     props: {
         number: 0,
+        setToZero: false,
+    },
+    watch: {
+        setToZero: function() {
+            this.fillOrange=false;
+        }
     }
 }
 </script>

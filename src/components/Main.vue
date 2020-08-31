@@ -1,12 +1,12 @@
 <template lang="pug">
   div(class='mainConteiner')
-    Modal(v-if='showModal' :modal='modalProps' v-on:close='showModal=false; robotIsCreated=false')
+    Modal(v-if='showModal' :modal='modalProps' v-on:close="showModal=false; $store.commit('closeModal')")
     MyHeader
     InfoBlock
     Wallet(v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')")
     Market
     Stock(v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')")
-    Manufacture(:robotIsCreated='robotIsCreated' v-on:robotCreated="modalTrue('Биоробот произведён', 'Поздравляем!', 'Вы произвели биоробота', '')")
+    Manufacture(v-on:robotCreated="modalTrue('Биоробот произведён', 'Поздравляем!', 'Вы произвели биоробота', '')")
 </template>
 
 <script>
@@ -28,7 +28,6 @@ export default {
         subtitleTwo: '',
         pic:'',
       },
-      robotIsCreated: false,
     }
   },
   methods:{

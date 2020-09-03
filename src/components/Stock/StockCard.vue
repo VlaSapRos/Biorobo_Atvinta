@@ -1,7 +1,7 @@
 <template lang="pug">
   div(class='card')
     h1(class='cardTitle') {{ title }}
-    h2(class='cardSubtitle  cardSubtitle') Стоимость: {{ cost }} монет
+    h2(class='cardSubtitle') Стоимость: {{ cost }} монет
     h1(class='quantity') {{ quantity }} шт
     div(class='buttonSellBorder' v-bind:class="{buttonSellBorderDisabled: (quantity < 1) }")
       button(:disabled='quantity < 1' class = 'buttonSell' v-on:click="$emit((amountCoins+cost <= 100) ? 'sell' : 'overHundred')") Продать

@@ -7,12 +7,12 @@
         ManufactureRadio(title='Стабилизатор:' name='gender' value1 = 'Male' value2 = 'Female' v-on:roboTypeChange='roboType.stabilizer=$event')
         button(class='buttonCreate' :class="{active: isBeCreate}" :disabled='!isBeCreate' @click="createRobot(); setToZero=!setToZero;") Произвести за 10 монет
       div(class='conteiner_column conteiner_columnManufacture' style='padding-top:9px')
-        ManufactureCheck(:setToZero='setToZero' count='4' :countSelect='countBiomechanisms' isBiomechanism='true' :stock="stockroom.biomechanisms" v-on:count="countBiomechanisms+=$event")
-        ManufactureCheck(:setToZero='setToZero' count='4' :countSelect='countProcessors' isProcessor='true' :stock="stockroom.processors" v-on:count="countProcessors+=$event")
-        ManufactureCheck(:setToZero='setToZero' count='1' :countSelect='countSouls' isSoul='true' :stock="stockroom.souls" v-on:count="countSouls+=$event")
+        ManufactureCheck(:setToZero='setToZero' count='4' isBiomechanism='true' :stock="stockroom.biomechanisms")
+        ManufactureCheck(:setToZero='setToZero' count='4' isProcessor='true' :stock="stockroom.processors")
+        ManufactureCheck(:setToZero='setToZero' count='1' isSoul='true' :stock="stockroom.souls")
         div(class='notEnough') {{notEnough}}
       div(class='conteiner_column conteiner_columnManufacture')
-        ManufactureSilhouette(:stabilizer='roboType.stabilizer' :type='roboType.type' :isBeCreate='isBeCreate' :robotCreated='robotIsCreated')
+        ManufactureSilhouette(:stabilizer='roboType.stabilizer' :type='roboType.type' :isBeCreate='isBeCreate')
 </template>
 
 <script>
@@ -30,14 +30,10 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
           souls:1,
           coins:10,
         },
-        countBiomechanisms:0,
-        countProcessors:0,
-        countSouls:0,
         roboType:{
           stabilizer: 'Male',
           type: 'FrontEnd',
         },
-          robotIsCreated: false,
           setToZero: false,
       }
     },
@@ -49,10 +45,6 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
             this.$emit('robotCreated');
             this.$store.commit('createRobot',this.costRobot);
           }
-          this.countBiomechanisms = 0;
-          this.countProcessors = 0;
-          this.countSouls = 0;
-          this.robotIsCreated = true;
       },
     },
     components: {
@@ -64,6 +56,7 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
       ...mapState([
         'stockroom',
         'amountCoins',
+        'flags',
       ]),
       isBeCreate() {
         if (this.amountCoins >= 10 
@@ -76,6 +69,27 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
             return true
         }
         else { return false }
+      },
+      countBiomechanisms() {
+        let count=0
+        this.flags.biomechanism.map((item) => {
+          (item) ? count++ : count+=0
+        })
+        return count
+      },
+      countProcessors() {
+        let count=0
+        this.flags.processor.map((item) => {
+          (item) ? count++ : count+=0
+        })
+        return count
+      },
+      countSouls() {
+        let count=0
+        this.flags.soul.map((item) => {
+          (item) ? count++ : count+=0
+        })
+        return count
       },
       notEnough() {
         //notEnoughText разбит на 4 части

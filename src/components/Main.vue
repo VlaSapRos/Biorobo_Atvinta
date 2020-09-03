@@ -1,6 +1,6 @@
 <template lang="pug">
   div(class='mainConteiner')
-    Modal(v-if='showModal' :modal='modalProps' v-on:close="showModal=false; $store.commit('closeModal')")
+    Modal(v-if='showModal' :modal='modalProps' v-on:close="showModal=false; $store.commit('reset')")
     MyHeader
     InfoBlock
     Wallet(v-on:overHundred="modalTrue('Количество монет ограничено', 'Вы не можете нацыганить', 'более 100 монет biorobo', '/assets/img/coin/bigCoin.svg')")

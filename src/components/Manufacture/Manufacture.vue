@@ -2,25 +2,24 @@
   div(class="block" id='manufacture')
     h1(class='rubric') Производство
     div(class='conteiner conteiner_Manufacture')
-      div(class='conteiner_column conteiner_columnManufacture')
+      div(class='conteiner_column conteiner_column_Manufacture')
         ManufactureRadio(title='Тип биоробота:' name='type' value1 = 'FrontEnd' value2 = 'Design' v-on:roboTypeChange='roboType.type=$event')
         ManufactureRadio(title='Стабилизатор:' name='gender' value1 = 'Male' value2 = 'Female' v-on:roboTypeChange='roboType.stabilizer=$event')
-        button(class='buttonCreate' :class="{active: isBeCreate}" :disabled='!isBeCreate' @click="createRobot(); setToZero=!setToZero;") Произвести за 10 монет
-      div(class='conteiner_column conteiner_columnManufacture' style='padding-top:9px')
-        ManufactureCheck(:setToZero='setToZero' count='4' isBiomechanism='true' :stock="stockroom.biomechanisms")
-        ManufactureCheck(:setToZero='setToZero' count='4' isProcessor='true' :stock="stockroom.processors")
-        ManufactureCheck(:setToZero='setToZero' count='1' isSoul='true' :stock="stockroom.souls")
-        div(class='notEnough') {{notEnough}}
-      div(class='conteiner_column conteiner_columnManufacture')
+        button(class='buttonCreate' :class="{active: isBeCreate}" :disabled='!isBeCreate' @click="createRobot()") Произвести за 10 монет
+      div(class='conteiner_column conteiner_column_Manufacture' style='padding-top:9px')
+        ManufactureCheck( count='4' isBiomechanism='true' :stock="stockroom.biomechanisms" )
+        ManufactureCheck( count='4' isProcessor='true' :stock="stockroom.processors" )
+        ManufactureCheck( count='1' isSoul='true' :stock="stockroom.souls" )
+        div(class='notEnough') {{ notEnough }}
+      div(class='conteiner_column conteiner_column_Manufacture')
         ManufactureSilhouette(:stabilizer='roboType.stabilizer' :type='roboType.type' :isBeCreate='isBeCreate')
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
-import ManufactureRadioVue from './ManufactureRadio.vue';
-import ManufactureCheckVue from './ManufactureCheck.vue';
-import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
+  import { mapState } from 'vuex';
+  import ManufactureRadioVue from './ManufactureRadio.vue';
+  import ManufactureCheckVue from './ManufactureCheck.vue';
+  import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
   export default {
     data(){
       return {
@@ -34,7 +33,6 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
           stabilizer: 'Male',
           type: 'FrontEnd',
         },
-          setToZero: false,
       }
     },
     methods: {
@@ -154,55 +152,55 @@ import ManufactureSilhouetteVue from './ManufactureSilhouette.vue';
 </script>
 
 <style lang="scss" scoped>
-    .rubric_Manufacture {
-        line-height: 72px;
-        height: 72px;
-    }
-    .conteiner_Manufacture {
-        height: 320px;
-    }
-    .buttonCreate {
-        width: 236px;
-        height: 48px;
-        border:2px solid #FF7F22; 
-        border-radius: 60px;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 24px;
-        text-align: center;
-        color: #FFFFFF;
-        background-color: transparent;
-        margin-top:55px;
-    }
-    .buttonCreate:hover {
-        background: #FF5722;
-        border:2px solid #FF5722; 
-    }
-    .buttonCreate:active {
-        background: #FF7F22;
-        border:2px solid #FF7F22; 
-    }
-    .buttonCreate:disabled {
-        background-color: transparent;
-        border: 2px solid #4C5865;
-        color: #4C5865;
-    }
-    .conteiner_columnManufacture {
-        justify-content: start;
-        align-items: start;
-        height: 327px;
-        width: 236px;
-    }
-    .notEnough {
-        width: 195px;
-        height: 48px;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 16px;
-        color: #A3B8CC;
-        margin-top: 45px;
-        padding: 0;
-    }
+  .rubric_Manufacture {
+      line-height: 72px;
+      height: 72px;
+  }
+  .conteiner_Manufacture {
+    height: 320px;
+  }
+  .buttonCreate {
+    width: 236px;
+    height: 48px;
+    border:2px solid #FF7F22; 
+    border-radius: 60px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: transparent;
+    margin-top:55px;
+  }
+  .buttonCreate:hover {
+    background: #FF5722;
+    border:2px solid #FF5722; 
+  }
+  .buttonCreate:active {
+    background: #FF7F22;
+    border:2px solid #FF7F22; 
+  }
+  .buttonCreate:disabled {
+    background-color: transparent;
+    border: 2px solid #4C5865;
+    color: #4C5865;
+  }
+  .conteiner_column_Manufacture {
+    justify-content: start;
+    align-items: start;
+    height: 327px;
+    width: 236px;
+  }
+  .notEnough {
+    width: 195px;
+    height: 48px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #A3B8CC;
+    margin-top: 45px;
+    padding: 0;
+  }
 </style>

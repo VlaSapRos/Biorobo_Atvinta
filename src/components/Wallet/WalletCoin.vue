@@ -1,5 +1,14 @@
 <template>
-  <svg class="coin" v-bind:style="{left:[`${7.3 * number}`], 'z-index':[`${100-number}`]}" width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg 
+    class="coin" 
+    v-bind:style="{left:[`${7.3 * number}`], 'z-index':[`${100-number}`]}" 
+    width="16" 
+    height="20" 
+    viewBox="0 0 16 20" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+  >
     <rect width="16" height="20" fill="url(#pattern0)"/>
     <defs>
       <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -13,27 +22,8 @@
 <script>
   import { mapState } from 'vuex';
   export default {
-    data() {
-      return {
-        coin:1
-      }
-    },
-    ...mapState ([
-      'amountCoins',
-    ]),
     props:{
       number:0,
-    },
-    methods: {
-      positionCalculation : function (number) {
-        let location = 10 * number;
-        return `${location}px`
-    }
-    },
-    render: function (createElement) {
-      Array.apply(null, { length: this.amountCoins }).map(function (currentValue,index) {
-        return createElement('p', number=index)
-      })
     },
   }
 </script>

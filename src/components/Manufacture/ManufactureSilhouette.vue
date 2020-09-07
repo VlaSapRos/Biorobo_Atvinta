@@ -1,6 +1,5 @@
 <template lang="pug">
-  div(class='silhouette')
-    img(:src="'assets/img/robots/' + derictory + '/'+ picture + '.svg'")
+  img(:src="'assets/img/robots/' + derictory + '/'+ picture + '.svg'")
 </template>
 
 <script>
@@ -33,7 +32,3 @@ import { mapState } from 'vuex';
     },
   }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

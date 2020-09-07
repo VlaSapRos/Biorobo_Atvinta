@@ -10,45 +10,45 @@
 </template>
 
 <script>
-import MyHeaderVue from './MyHeader.vue';
-import WalletVue from './Wallet/Wallet.vue';
-import MarketVue from './Market/Market.vue';
-import StockVue from './Stock/Stock.vue';
-import ManufactureVue from './Manufacture/Manufacture.vue';
-import ModalVue from './Modal.vue';
-import InfoBlockVue from './InfoBlock.vue';
-
-export default {
-  data() {
-    return {
-      showModal:false,
-      modalProps:{
-        title:'',
-        subtitleOne:'',
-        subtitleTwo: '',
-        pic:'',
-      },
-    }
-  },
-  methods:{
-    modalTrue:function(title,subtitleOne,subtitleTwo,pic){
-      this.modalProps.title = title;
-      this.modalProps.subtitleOne = subtitleOne;
-      this.modalProps.subtitleTwo = subtitleTwo;
-      this.modalProps.pic = pic;
-      this.showModal = true;
-    }
-  },
-  components: {
-    'MyHeader': MyHeaderVue,
-    'Wallet': WalletVue,
-    'Market': MarketVue,
-    'Stock': StockVue,
-    'Manufacture': ManufactureVue,
-    'Modal': ModalVue,
-    'InfoBlock': InfoBlockVue,
-  },
-}
+  import MyHeaderVue from './MyHeader.vue';
+  import WalletVue from './Wallet/Wallet.vue';
+  import MarketVue from './Market/Market.vue';
+  import StockVue from './Stock/Stock.vue';
+  import ManufactureVue from './Manufacture/Manufacture.vue';
+  import ModalVue from './Modal.vue';
+  import InfoBlockVue from './InfoBlock.vue';
+  
+  export default {
+    data() {
+      return {
+        showModal:false,
+        modalProps:{
+          title:'',
+          subtitleOne:'',
+          subtitleTwo: '',
+          pic:'',
+        },
+      }
+    },
+    methods:{
+      modalTrue:function(title,subtitleOne,subtitleTwo,pic){
+        this.modalProps.title = title;
+        this.modalProps.subtitleOne = subtitleOne;
+        this.modalProps.subtitleTwo = subtitleTwo;
+        this.modalProps.pic = pic;
+        this.showModal = true;
+      }
+    },
+    components: {
+      'MyHeader': MyHeaderVue,
+      'Wallet': WalletVue,
+      'Market': MarketVue,
+      'Stock': StockVue,
+      'Manufacture': ManufactureVue,
+      'Modal': ModalVue,
+      'InfoBlock': InfoBlockVue,
+    },
+  }
 </script>
 
 <style lang="scss" scoped>

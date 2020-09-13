@@ -1,7 +1,7 @@
 <template lang="pug">
-  div(class="block")
-    h1(class='rubric') Рынок комплектующих
-    div(class="conteiner")
+  .block
+    span.rubric Рынок комплектующих
+    .container
       MarketCard(
         pic='/assets/img/biomechanism/biomechanism_market.svg' 
         title='Биомеханизм' 

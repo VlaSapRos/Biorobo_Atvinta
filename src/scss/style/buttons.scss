@@ -1,0 +1,104 @@
+// *************** button-install ***************
+
+.button-install {
+  width: 200px;
+  height: 48px;
+  border-radius: 60px;
+  background: linear-gradient(180deg, #FF7F22 0%, #FF5722 100%);
+  font-family: 'Montserrat_regular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  border: none;
+}
+.button-install:hover {
+  background: #FF5722;
+}
+.button-install:active {
+  background: #FF7F22;
+}
+.button-install:disabled {
+  color: #7D90A6;
+  background: #4C5865;
+}
+
+// *************** button-sell ***************
+
+.button-sell-border{
+  background: linear-gradient(90deg, #22B3E3 0%,#7CDAF9 50%, #22B3E3 100%);
+  border-radius: 60px;
+  height: 48px;
+  width: 200px;
+  padding: 2px;
+}
+.button-sell-border_disabled {
+  background: #4C5865;
+  pointer-events: none;
+}
+.button-sell-border__button {
+  width: 196px;
+  height: 44px;
+  border-radius: 60px;
+  font-family: 'Montserrat_regular';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  border-color: transparent ;
+  background-color: #212529;
+  color: #7CDAF9;
+  }
+.button-sell-border__button:disabled {
+  color: #4C5865;
+  pointer-events: none;
+}
+.button-sell-border__button:hover {
+  background: #7CDAF9;
+  color: #212529;
+  box-shadow: 0px 16px 20px 3px rgba(34, 179, 227, 0.15), 0px 0px 42px 0px rgba(34, 179, 227, 0.1);
+}
+.button-sell-border__button:active {
+  box-shadow: 0px 0px 42px 0px rgba(34, 179, 227, 0.1);
+  background-color: #212529;
+  color: #7CDAF9;
+}
+.button-sell-border:hover {
+  background: #7CDAF9;
+}    
+.button-sell-border:active {
+  background: #22B3E3;
+}
+
+// *************** button-create ***************
+
+.button-create {
+  width: 236px;
+  height: 48px;
+  border:2px solid #FF7F22; 
+  border-radius: 60px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #FFFFFF;
+  background-color: transparent;
+  margin-top:55px;
+}
+.button-create:hover {
+  background: #FF5722;
+  border:2px solid #FF5722; 
+}
+.button-create:active {
+  background: #FF7F22;
+  border:2px solid #FF7F22; 
+}
+.button-create:disabled {
+  background-color: transparent;
+  border: 2px solid #4C5865;
+  color: #4C5865;
+}

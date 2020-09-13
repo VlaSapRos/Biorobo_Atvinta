@@ -1,17 +1,17 @@
 <template lang="pug">
-  div(class="block" id='manufacture')
-    h1(class='rubric') Производство
-    div(class='conteiner conteiner_Manufacture')
-      div(class='conteiner_column conteiner_column_Manufacture')
+  .block(id='manufacture')
+    span.rubric.rubric_Manufacture Производство
+    .container.container_Manufacture
+      .container_column.container_column_Manufacture
         ManufactureRadio(title='Тип биоробота:' name='type' value1 = 'FrontEnd' value2 = 'Design' v-on:roboTypeChange='roboType.type=$event')
         ManufactureRadio(title='Стабилизатор:' name='gender' value1 = 'Male' value2 = 'Female' v-on:roboTypeChange='roboType.stabilizer=$event')
-        button(class='buttonCreate' :class="{active: isBeCreate}" :disabled='!isBeCreate' @click="createRobot()") Произвести за 10 монет
-      div(class='conteiner_column conteiner_column_Manufacture' style='padding-top:9px')
+        button.button-create(:class="{active: isBeCreate}" :disabled='!isBeCreate' @click="createRobot()") Произвести за 10 монет
+      .container_column.container_column_Manufacture(style='padding-top:9px')
         ManufactureCheck( count='4' isBiomechanism='true' :stock="stockroom.biomechanisms" )
         ManufactureCheck( count='4' isProcessor='true' :stock="stockroom.processors" )
         ManufactureCheck( count='1' isSoul='true' :stock="stockroom.souls" )
-        div(class='notEnough') {{ notEnough }}
-      div(class='conteiner_column conteiner_column_Manufacture')
+        .Manufacture__not-enough {{ notEnough }}
+      .container_column.container_column_Manufacture
         ManufactureSilhouette(:stabilizer='roboType.stabilizer' :type='roboType.type' :isBeCreate='isBeCreate')
 </template>
 
@@ -156,43 +156,16 @@
       line-height: 72px;
       height: 72px;
   }
-  .conteiner_Manufacture {
+  .container_Manufacture {
     height: 320px;
   }
-  .buttonCreate {
-    width: 236px;
-    height: 48px;
-    border:2px solid #FF7F22; 
-    border-radius: 60px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    color: #FFFFFF;
-    background-color: transparent;
-    margin-top:55px;
-  }
-  .buttonCreate:hover {
-    background: #FF5722;
-    border:2px solid #FF5722; 
-  }
-  .buttonCreate:active {
-    background: #FF7F22;
-    border:2px solid #FF7F22; 
-  }
-  .buttonCreate:disabled {
-    background-color: transparent;
-    border: 2px solid #4C5865;
-    color: #4C5865;
-  }
-  .conteiner_column_Manufacture {
+  .container_column_Manufacture {
     justify-content: start;
     align-items: start;
     height: 327px;
     width: 236px;
   }
-  .notEnough {
+  .Manufacture__not-enough {
     width: 195px;
     height: 48px;
     font-style: normal;

@@ -6,8 +6,8 @@
     :disabled='+stockroom.souls<+number'
   >
     <svg 
-      class='fillGray' 
-      v-bind:class='{fillWhite:+stockroom.souls>=+number, fillOrange:(flags.soul[number-1] && +stockroom.souls>=+number), }' 
+      class='fill-gray' 
+      v-bind:class='{"fill-white":+stockroom.souls>=+number, "fill-orange":(flags.soul[number-1] && +stockroom.souls>=+number), }' 
       width="32" 
       height="32" 
       viewBox="0 0 32 32" 

@@ -1,7 +1,7 @@
 <template lang="pug">
-  div(class="block")
-    h1(class='rubric') Склад
-    div(class='conteiner')
+  .block
+    span.rubric Склад
+    .container
       StockCard(
         :quantity='stockroom.biomechanisms'
         title='Биомеханизм'

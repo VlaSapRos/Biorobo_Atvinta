@@ -6,8 +6,8 @@
     :disabled='+stockroom.processors<+number'
   >
     <svg 
-      class='fillGray' 
-      v-bind:class='{fillWhite:+stockroom.processors>=+number, fillOrange:(flags.processor[number-1] && +stockroom.processors>=+number), }' 
+      class='fill-gray' 
+      v-bind:class='{"fill-white":+stockroom.processors>=+number, "fill-orange":(flags.processor[number-1] && +stockroom.processors>=+number), }' 
       width="24" 
       height="24" 
       viewBox="0 0 24 24" 

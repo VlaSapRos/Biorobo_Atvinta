@@ -1,8 +1,8 @@
 <template lang="pug">
-  div(class='infoBlock block')
-    h1(class='headerHeading') Фабрика по производству биороботов
-    h3(class='headerSubtitle') класса «монитор-кресло»
-    img(class='robots' src='assets/img/robots/robotsHeader.svg')
+  .block.block_InfoBlock
+    span.InfoBlock__title Фабрика по производству биороботов
+    span.InfoBlock__subtitle класса «монитор-кресло»
+    img.InfoBlock__robots(src='assets/img/robots/robotsHeader.svg')
 </template>
 
 <script>
@@ -12,25 +12,25 @@
 </script>
 
 <style lang="scss" scoped>
-  .infoBlock{
+  .block_InfoBlock{
     position: relative;
     height: 320px;
   }
-  .headerHeading {
+  .InfoBlock__title {
     position: absolute;
     font-size: 56px;
     line-height: 72px;
     width: 470px;
     height: 216px;
   }
-  .headerSubtitle{
+  .InfoBlock__subtitle{
     position: absolute;
     top: 243px;
     color: #A3B8CC;
     font-size: 24px;
     line-height: 32px;
   }
-  .robots {
+  .InfoBlock__robots {
     position: absolute;
     left: 650px;
   }

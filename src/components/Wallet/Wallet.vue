@@ -1,14 +1,14 @@
 <template lang="pug">
-  div(class='block block-column')
-    h1(class='rubric') Кошелёк криптовалют
-    div(class='coinConteiner')
+  .block
+    span.rubric Кошелёк криптовалют
+    .Wallet__coin-container
       coin(v-for="item in coins" :number='item.number' v-if='amountCoins>=(item.number+1)')
-    p(class='coins') <b class='coinsBold'>{{ amountCoins }}</b> {{' biorobo ' + coinsDeclination }}
-    div(class='walletWrapper')
-      button(class='buttonToGamble' @click="addCoins(checked)") Нацыганить
-      input(type="checkbox" class='inputCheckbox' id="checkbox" v-model="checked")
-      label(class='labelCheckbox' for='checkbox')
-      label(class='labelCheckboxText' for='checkbox') Цыганить по 5 монет
+    p.Wallet__coins <b class='Wallet__coins_bold'>{{ amountCoins }}</b> {{' biorobo ' + coinsDeclination }}
+    .Wallet__wrapper
+      button.Wallet__button-to-gamble(@click="addCoins(checked)") Нацыганить
+      input.Wallet__input-checkbox(type="checkbox" id="checkbox" v-model="checked")
+      label.Wallet__label-checkbox(for='checkbox')
+      label.Wallet__label-checkbox-text(for='checkbox') Цыганить по 5 монет
 </template>
 
 <script>
@@ -61,7 +61,7 @@ import WalletCoinVue from './WalletCoin.vue';
 </script>
 
 <style lang="scss" scoped>
-  .coins {
+  .Wallet__coins {
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -70,28 +70,28 @@ import WalletCoinVue from './WalletCoin.vue';
     margin: 0;
     margin-bottom: 43px;
   }
-  .coinsBold {
+  .Wallet__coins_bold {
     font-style: normal;
     font-weight: 1200;
   }
-  .coinConteiner {
+  .Wallet__coin-container {
     padding: 0;
     margin-bottom: 23px;
     position: relative;
     height: 20px;
   }
-  .inputCheckbox {
+  .Wallet__input-checkbox {
     appearance: none;
     position: absolute;
     display: none;
   }
-  .labelCheckboxText {
+  .Wallet__label-checkbox-text {
     position: absolute;
     left: 170px;
     font-weight: 500;
     font-size: 16px;
   }
-  .labelCheckbox {
+  .Wallet__label-checkbox {
     position: absolute;
     left: 133px;
     width: 24px;
@@ -99,7 +99,7 @@ import WalletCoinVue from './WalletCoin.vue';
     border: 2px solid #A3B8CC;
     box-sizing: border-box;
   }
-  .labelCheckbox::after {
+  .Wallet__label-checkbox::after {
     content: '';
     background: url('/assets/img/checked.svg') no-repeat;
     height: 16px;
@@ -110,10 +110,10 @@ import WalletCoinVue from './WalletCoin.vue';
     top: 4px;
     opacity: 0;
   }
-  .inputCheckbox:checked + .labelCheckbox::after {
+  .Wallet__input-checkbox:checked + .Wallet__label-checkbox::after {
     opacity: 1;
   }
-  .buttonToGamble {
+  .Wallet__button-to-gamble {
     width: 102px;
     height: 24px;
     padding: 0;
@@ -128,7 +128,7 @@ import WalletCoinVue from './WalletCoin.vue';
     border-bottom: FF7F22;
     border-bottom: 1px solid rgba(255, 127, 34, 0.5);
   }
-  .walletWrapper {
+  .Wallet__wrapper {
     position: relative;
     display: flex;
     justify-content: start;

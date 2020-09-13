@@ -1,12 +1,12 @@
 <template lang="pug">
-  div(class="modalMask")
-    div(class="modalConteiner")
-      img(class='pic' :src='modal.pic')
-      button(class='modalClose' v-on:click="$emit('close')")
+  .modal__mask
+    .modal__container
+      img.pic(:src='modal.pic')
+      button.modal__close-button(v-on:click="$emit('close')")
         img(src='assets/img/cross.svg')
-      h1(class="modalTitle") {{modal.title}}
-      h2(class="modalSubtitle") {{modal.subtitleOne}}
-      h2(class="modalSubtitle modalSubtitleTwo") {{modal.subtitleTwo}}
+      span.modal__title {{modal.title}}
+      span.modal__subtitle {{modal.subtitleOne}}
+      span.modal__subtitle.modal__subtitle_two {{modal.subtitleTwo}}
 </template>
 
 <script>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .modalMask {
+  .modal__mask {
     position: absolute;
     z-index: 9998;
     width: 1440px;
@@ -28,7 +28,7 @@ export default {
     margin: 0px;
     background: rgba(26, 26, 26, 0.67);
   }
-  .modalConteiner {
+  .modal__container {
     position: fixed;
     width: 496px;
     height: 240px;
@@ -37,7 +37,7 @@ export default {
     background: #FFFFFF;
     border-radius: 10px;
   }
-  .modalTitle {
+  .modal__title {
     position: absolute;
     top: 33px;
     left: 106px;
@@ -50,7 +50,7 @@ export default {
     line-height: 40px;
     color: #212529;
   }
-  .modalSubtitle {
+  .modal__subtitle {
     position: absolute;
     left: 106px;
     top: 33+80+23px;
@@ -63,10 +63,10 @@ export default {
     line-height: 32px;
     color: #4C5865;
   }
-  .modalSubtitleTwo {
+  .modal__subtitle_two {
     top: 168px;
   }
-  .modalClose {
+  .modal__close-button {
     position: absolute;
     top: 8px;
     left: 456px;

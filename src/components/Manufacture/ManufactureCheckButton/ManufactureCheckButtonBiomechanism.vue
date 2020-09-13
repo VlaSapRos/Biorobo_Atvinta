@@ -5,11 +5,13 @@
     @click="$store.commit((flags.biomechanism[number-1]) ? 'unSelectedBiomechanism' : 'selectedBiomechanism',number-1)"
     :disabled='+stockroom.biomechanisms<+number'
   >
-    <svg class='fillGray' 
-      v-bind:class='{fillWhite:+stockroom.biomechanisms>=+number, fillOrange:(flags.biomechanism[number-1] && +stockroom.biomechanisms>=+number)}'
+    <svg 
+      class='fill-gray' 
+      v-bind:class='{"fill-white":+stockroom.biomechanisms>=+number, "fill-orange":(flags.biomechanism[number-1] && +stockroom.biomechanisms>=+number)}'
       width="36" 
       height="24" 
-      viewBox="0 0 36 24" fill="none" 
+      viewBox="0 0 36 24" 
+      fill="none" 
       xmlns="http://www.w3.org/2000/svg"
     >
       <path  d="M12.2864 9.29616C12.1887 9.35474 12.0812 9.38257 11.9753 9.38257C11.7645 9.38257 11.5595 9.27249 11.4449 9.07442C11.2726 8.77684 11.3704 8.39385 11.663 8.21877L14.1717 6.71823C14.4641 6.54315 14.8411 6.64239 15.0133 6.93997C15.1855 7.23755 15.0878 7.62054 14.7951 7.79562L12.2864 9.29616Z"/>

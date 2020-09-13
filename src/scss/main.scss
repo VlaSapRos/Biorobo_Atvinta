@@ -3,6 +3,7 @@
 @import "style/svg.scss";
 @import "style/card.scss";
 @import "style/chekbox.scss";
+@import "style/buttons.scss";
 
 //*******************************
 body {
@@ -25,14 +26,14 @@ body {
   margin-bottom: 60px;
 }
 
-.conteiner {
+.container {
   display: flex;
   justify-content: space-between;
   align-content: center;
   align-items: center;
 }
 
-.conteiner_column {
+.container_column {
   display: flex;
   flex-direction: column;
   align-content: center;

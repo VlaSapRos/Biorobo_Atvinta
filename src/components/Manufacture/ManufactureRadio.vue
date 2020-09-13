@@ -1,17 +1,17 @@
 <template lang="pug">
-  div(class='radio')
-    h1(class='radioTitle') {{ title }}
-    div(class='conteiner radioSize')
-      div(class='radioConteiner')
-        div(class='radioWrapper')
-          input(checked class='radioInput' type='radio' :id="name+'_1'" :name='name' v-model='picked' :value='value1' v-on:change="$emit('roboTypeChange',picked)")
-          label(class='radioLabel' :for="name+'_1'")
-        p(class='radioText') {{ value1 }}
-      div(class='radioConteiner')
-        div(class='radioWrapper')
-          input(class='radioInput' type='radio' :id="name+'_2'" :name='name' v-model='picked' :value='value2' v-on:change="$emit('roboTypeChange',picked)")
-          label(class='radioLabel' :for="name+'_2'")
-        p(class='radioText') {{ value2 }}
+  .ManufactureRadio
+    span.ManufactureRadio__title {{ title }}
+    .container.container_ManufactureRadio
+      .ManufactureRadio__container
+        .ManufactureRadio__wrapper
+          input.ManufactureRadio__input(checked type='radio' :id="name+'_1'" :name='name' v-model='picked' :value='value1' v-on:change="$emit('roboTypeChange',picked)")
+          label.ManufactureRadio__label(:for="name+'_1'")
+        p.ManufactureRadio__text {{ value1 }}
+      .ManufactureRadio__container
+        .ManufactureRadio__wrapper
+          input.ManufactureRadio__input(type='radio' :id="name+'_2'" :name='name' v-model='picked' :value='value2' v-on:change="$emit('roboTypeChange',picked)")
+          label.ManufactureRadio__label(:for="name+'_2'")
+        p.ManufactureRadio__text {{ value2 }}
 </template>
 
 <script>
@@ -31,10 +31,10 @@
 </script>
 
 <style lang="scss" scoped>
-  .radio {
+  .ManufactureRadio {
     margin-bottom: 23px;
   }
-  .radioTitle {
+  .ManufactureRadio__title {
     width: 134px;
     height: 20px;
     font-style: normal;
@@ -45,17 +45,17 @@
     margin-bottom: 16px;
     margin-top: 5px;
   }
-  .radioInput {
+  .ManufactureRadio__input {
     appearance: none;
     position: absolute;
   }
-  .radioWrapper {
+  .ManufactureRadio__wrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  .radioConteiner {
+  .ManufactureRadio__container {
     display: flex;
     width: 103px;
     font-style: normal;
@@ -65,14 +65,14 @@
     align-items: center;
     justify-content: space-between;
   }
-  .radioLabel {
+  .ManufactureRadio__label {
     height: 24px;
     width: 24px;
     border: 2px solid #A3B8CC;
     border-radius: 50%;
     margin-right: 4px;
   }
-  .radioLabel::after {
+  .ManufactureRadio__label::after {
     content: '';
     height: 16px;
     width: 16px;
@@ -84,18 +84,18 @@
     left: 4px;
     opacity: 0;
   }    
-  .radioText {
+  .ManufactureRadio__text {
     display: flex;
     align-items: center;
     justify-content: start;
     width: 63px;
     height: 32px;
   }
-  .radioSize {
+  .container_ManufactureRadio {
     width: 237px;
     padding-left: 2px;
   }
-  .radioInput:checked + .radioLabel::after {
+  .ManufactureRadio__input:checked + .ManufactureRadio__label::after {
     opacity: 1;
   }
 </style>

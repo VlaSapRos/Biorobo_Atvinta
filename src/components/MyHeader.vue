@@ -1,7 +1,7 @@
 <template lang="pug">
-  div(class='myheader')
+  .myheader
     img(src='assets/img/pac-man.svg')
-    a( class='headerButton' href='#manufacture') Произвести биоробота
+    a.myheader__button(href='#manufacture') Произвести биоробота
 </template>
 
 <script>
@@ -19,7 +19,7 @@
     justify-content: space-between;
     height: 48px ;
   }
-  .headerButton {
+  .myheader__button {
     display: flex;
     width: 236px;
     height: 48px;

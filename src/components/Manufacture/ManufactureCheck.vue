@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(class='checkboxs')
+  .ManufactureCheck__checkboxs
     svgBiomechanism( number='1' v-if="isBiomechanism && count >= 1" )
     svgProcessor( number='1' v-if='isProcessor && count >= 1' )
     svgSoul( number='1' v-if='isSoul && count >= 1' )
@@ -34,7 +34,7 @@
 </script>
 
 <style lang="scss" scoped>
-    .checkboxs {
+    .ManufactureCheck__checkboxs {
         display: flex;
         align-items: center;
         justify-content: space-between;

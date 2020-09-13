@@ -1,5 +1,5 @@
 <template lang="pug">
-  div(class='mainConteiner')
+  .main__container
     Modal(v-if='showModal' :modal='modalProps' v-on:close="showModal=false; $store.commit('reset')")
     MyHeader
     InfoBlock
@@ -52,7 +52,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .mainConteiner {
+  .main__container {
     width: 1016px;
     display: flex;
     flex-direction: column;
